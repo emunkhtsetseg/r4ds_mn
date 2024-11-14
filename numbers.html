@@ -8,7 +8,7 @@
 
 <meta name="author" content="Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund">
 
-<title>numbers</title>
+<title>14&nbsp; Numbers – R for Data Science (2e)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,11 +59,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./strings.html" rel="next">
+<link href="./logicals.html" rel="prev">
+<link href="./cover.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -72,7 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-07ba0ad10f5680c660e360ac31d2f3b6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a931f05f3074483020850101f44f8acc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4e73071aaf4ad36f30f53cb9d4ee01e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -105,28 +109,385 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="fullcontent">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./transform.html">Transform</a></li><li class="breadcrumb-item"><a href="./numbers.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Numbers</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R for Data Science (2e)</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/emunkhtsetseg/r4ds/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">тавтай морил</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./preface-2e.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface to the second edition</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./whole-game.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Whole game</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-visualize.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data visualization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workflow-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Workflow: basics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-transform.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data transformation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workflow-style.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Workflow: code style</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-tidy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data tidying</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workflow-scripts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Workflow: scripts and projects</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-import.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data import</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workflow-help.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Workflow: getting help</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./visualize.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualize</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./layers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Layers</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EDA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Exploratory data analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./communication.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Communication</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./transform.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transform</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./logicals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Logical vectors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./numbers.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Numbers</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./strings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Strings</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./regexps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Regular expressions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./factors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Factors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./datetimes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Dates and times</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./missing-values.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Missing values</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./joins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Joins</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./import.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Import</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./spreadsheets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Spreadsheets</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./databases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Databases</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./arrow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Arrow</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./rectangling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Hierarchical data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./webscraping.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Web scraping</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./program.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Program</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./iteration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Iteration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./base-R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">A field guide to base R</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./communicate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Communicate</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./quarto-formats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Quarto formats</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">14.1</span> Introduction</a>
+  <ul class="collapse">
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites"><span class="header-section-number">14.1.1</span> Prerequisites</a></li>
+  </ul></li>
+  <li><a href="#making-numbers" id="toc-making-numbers" class="nav-link" data-scroll-target="#making-numbers"><span class="header-section-number">14.2</span> Making numbers</a></li>
+  <li><a href="#sec-counts" id="toc-sec-counts" class="nav-link" data-scroll-target="#sec-counts"><span class="header-section-number">14.3</span> Counts</a>
+  <ul class="collapse">
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">14.3.1</span> Exercises</a></li>
+  </ul></li>
+  <li><a href="#numeric-transformations" id="toc-numeric-transformations" class="nav-link" data-scroll-target="#numeric-transformations"><span class="header-section-number">14.4</span> Numeric transformations</a>
+  <ul class="collapse">
+  <li><a href="#sec-recycling" id="toc-sec-recycling" class="nav-link" data-scroll-target="#sec-recycling"><span class="header-section-number">14.4.1</span> Arithmetic and recycling rules</a></li>
+  <li><a href="#minimum-and-maximum" id="toc-minimum-and-maximum" class="nav-link" data-scroll-target="#minimum-and-maximum"><span class="header-section-number">14.4.2</span> Minimum and maximum</a></li>
+  <li><a href="#modular-arithmetic" id="toc-modular-arithmetic" class="nav-link" data-scroll-target="#modular-arithmetic"><span class="header-section-number">14.4.3</span> Modular arithmetic</a></li>
+  <li><a href="#logarithms" id="toc-logarithms" class="nav-link" data-scroll-target="#logarithms"><span class="header-section-number">14.4.4</span> Logarithms</a></li>
+  <li><a href="#sec-rounding" id="toc-sec-rounding" class="nav-link" data-scroll-target="#sec-rounding"><span class="header-section-number">14.4.5</span> Rounding</a></li>
+  <li><a href="#cutting-numbers-into-ranges" id="toc-cutting-numbers-into-ranges" class="nav-link" data-scroll-target="#cutting-numbers-into-ranges"><span class="header-section-number">14.4.6</span> Cutting numbers into ranges</a></li>
+  <li><a href="#sec-cumulative-and-rolling-aggregates" id="toc-sec-cumulative-and-rolling-aggregates" class="nav-link" data-scroll-target="#sec-cumulative-and-rolling-aggregates"><span class="header-section-number">14.4.7</span> Cumulative and rolling aggregates</a></li>
+  <li><a href="#exercises-1" id="toc-exercises-1" class="nav-link" data-scroll-target="#exercises-1"><span class="header-section-number">14.4.8</span> Exercises</a></li>
+  </ul></li>
+  <li><a href="#general-transformations" id="toc-general-transformations" class="nav-link" data-scroll-target="#general-transformations"><span class="header-section-number">14.5</span> General transformations</a>
+  <ul class="collapse">
+  <li><a href="#ranks" id="toc-ranks" class="nav-link" data-scroll-target="#ranks"><span class="header-section-number">14.5.1</span> Ranks</a></li>
+  <li><a href="#offsets" id="toc-offsets" class="nav-link" data-scroll-target="#offsets"><span class="header-section-number">14.5.2</span> Offsets</a></li>
+  <li><a href="#consecutive-identifiers" id="toc-consecutive-identifiers" class="nav-link" data-scroll-target="#consecutive-identifiers"><span class="header-section-number">14.5.3</span> Consecutive identifiers</a></li>
+  <li><a href="#exercises-2" id="toc-exercises-2" class="nav-link" data-scroll-target="#exercises-2"><span class="header-section-number">14.5.4</span> Exercises</a></li>
+  </ul></li>
+  <li><a href="#numeric-summaries" id="toc-numeric-summaries" class="nav-link" data-scroll-target="#numeric-summaries"><span class="header-section-number">14.6</span> Numeric summaries</a>
+  <ul class="collapse">
+  <li><a href="#center" id="toc-center" class="nav-link" data-scroll-target="#center"><span class="header-section-number">14.6.1</span> Center</a></li>
+  <li><a href="#sec-min-max-summary" id="toc-sec-min-max-summary" class="nav-link" data-scroll-target="#sec-min-max-summary"><span class="header-section-number">14.6.2</span> Minimum, maximum, and quantiles</a></li>
+  <li><a href="#spread" id="toc-spread" class="nav-link" data-scroll-target="#spread"><span class="header-section-number">14.6.3</span> Spread</a></li>
+  <li><a href="#distributions" id="toc-distributions" class="nav-link" data-scroll-target="#distributions"><span class="header-section-number">14.6.4</span> Distributions</a></li>
+  <li><a href="#positions" id="toc-positions" class="nav-link" data-scroll-target="#positions"><span class="header-section-number">14.6.5</span> Positions</a></li>
+  <li><a href="#with-mutate" id="toc-with-mutate" class="nav-link" data-scroll-target="#with-mutate"><span class="header-section-number">14.6.6</span> With <code>mutate()</code></a></li>
+  <li><a href="#exercises-3" id="toc-exercises-3" class="nav-link" data-scroll-target="#exercises-3"><span class="header-section-number">14.6.7</span> Exercises</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">14.7</span> Summary</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/emunkhtsetseg/r4ds/edit/main/numbers.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emunkhtsetseg/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./transform.html">Transform</a></li><li class="breadcrumb-item"><a href="./numbers.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Numbers</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-numbers" class="quarto-section-identifier"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Numbers</span></span></h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="sec-numbers" class="level1">
-<h1>Numbers</h1>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">14.1</span> Introduction</h2>
 <p>Numeric vectors are the backbone of data science, and you’ve already used them a bunch of times earlier in the book. Now it’s time to systematically survey what you can do with them in R, ensuring that you’re well situated to tackle any future problem involving numeric vectors.</p>
 <p>We’ll start by giving you a couple of tools to make numbers if you have strings, and then going into a little more detail of <code>count()</code>. Then we’ll dive into various numeric transformations that pair well with <code>mutate()</code>, including more general transformations that can be applied to other types of vectors, but are often used with numeric vectors. We’ll finish off by covering the summary functions that pair well with <code>summarize()</code> and show you how they can also be used with <code>mutate()</code>.</p>
-<section id="prerequisites" class="level3">
-<h3 class="anchored" data-anchor-id="prerequisites">Prerequisites</h3>
+<section id="prerequisites" class="level3" data-number="14.1.1">
+<h3 data-number="14.1.1" class="anchored" data-anchor-id="prerequisites"><span class="header-section-number">14.1.1</span> Prerequisites</h3>
 <p>This chapter mostly uses functions from base R, which are available without loading any packages. But we still need the tidyverse because we’ll use these base R functions inside of tidyverse functions like <code>mutate()</code> and <code>filter()</code>. Like in the last chapter, we’ll use real examples from nycflights13, as well as toy examples made with <code>c()</code> and <code>tribble()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -134,8 +495,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="making-numbers" class="level2">
-<h2 class="anchored" data-anchor-id="making-numbers">Making numbers</h2>
+<section id="making-numbers" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="making-numbers"><span class="header-section-number">14.2</span> Making numbers</h2>
 <p>In most cases, you’ll get numbers already recorded in one of R’s numeric types: integer or double. In some cases, however, you’ll encounter them as strings, possibly because you’ve created them by pivoting from column headers or because something has gone wrong in your data import process.</p>
 <p>readr provides two useful functions for parsing strings into numbers: <code>parse_double()</code> and <code>parse_number()</code>. Use <code>parse_double()</code> when you have numbers that have been written as strings:</p>
 <div class="cell">
@@ -150,8 +511,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1234 3513   59</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="sec-counts" class="level2">
-<h2 class="anchored" data-anchor-id="sec-counts">Counts</h2>
+<section id="sec-counts" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="sec-counts"><span class="header-section-number">14.3</span> Counts</h2>
 <p>It’s surprising how much data science you can do with just counts and a little basic arithmetic, so dplyr strives to make counting as easy as possible with <code>count()</code>. This function is great for quick exploration and checks during analysis:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> <span class="fu">count</span>(dest)</span>
@@ -166,7 +527,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 AUS    2439</span></span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 99 more rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>(Despite the advice in <strong>?@sec-workflow-style</strong>, we usually put <code>count()</code> on a single line because it’s usually used at the console for a quick check that a calculation is working as expected.)</p>
+<p>(Despite the advice in <a href="workflow-style.html" class="quarto-xref"><span>Chapter 5</span></a>, we usually put <code>count()</code> on a single line because it’s usually used at the console for a quick check that a calculation is working as expected.)</p>
 <p>If you want to see the most common values, add <code>sort = TRUE</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> <span class="fu">count</span>(dest, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
@@ -264,8 +625,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 99 more rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 </ul>
-<section id="exercises" class="level3">
-<h3 class="anchored" data-anchor-id="exercises">Exercises</h3>
+<section id="exercises" class="level3" data-number="14.3.1">
+<h3 data-number="14.3.1" class="anchored" data-anchor-id="exercises"><span class="header-section-number">14.3.1</span> Exercises</h3>
 <ol type="1">
 <li>How can you use <code>count()</code> to count the number of rows with a missing value for a given variable?</li>
 <li>Expand the following calls to <code>count()</code> to instead use <code>group_by()</code>, <code>summarize()</code>, and <code>arrange()</code>:
@@ -276,12 +637,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 </section>
 </section>
-<section id="numeric-transformations" class="level2">
-<h2 class="anchored" data-anchor-id="numeric-transformations">Numeric transformations</h2>
+<section id="numeric-transformations" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="numeric-transformations"><span class="header-section-number">14.4</span> Numeric transformations</h2>
 <p>Transformation functions work well with <code>mutate()</code> because their output is the same length as the input. The vast majority of transformation functions are already built into base R. It’s impractical to list them all so this section will show the most useful ones. As an example, while R provides all the trigonometric functions that you might dream of, we don’t list them here because they’re rarely needed for data science.</p>
-<section id="sec-recycling" class="level3">
-<h3 class="anchored" data-anchor-id="sec-recycling">Arithmetic and recycling rules</h3>
-<p>We introduced the basics of arithmetic (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>^</code>) in <strong>?@sec-workflow-basics</strong> and have used them a bunch since. These functions don’t need a huge amount of explanation because they do what you learned in grade school. But we need to briefly talk about the <strong>recycling rules</strong> which determine what happens when the left and right hand sides have different lengths. This is important for operations like <code>flights |&gt; mutate(air_time = air_time / 60)</code> because there are 336,776 numbers on the left of <code>/</code> but only one on the right.</p>
+<section id="sec-recycling" class="level3" data-number="14.4.1">
+<h3 data-number="14.4.1" class="anchored" data-anchor-id="sec-recycling"><span class="header-section-number">14.4.1</span> Arithmetic and recycling rules</h3>
+<p>We introduced the basics of arithmetic (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>^</code>) in <a href="workflow-basics.html" class="quarto-xref"><span>Chapter 3</span></a> and have used them a bunch since. These functions don’t need a huge amount of explanation because they do what you learned in grade school. But we need to briefly talk about the <strong>recycling rules</strong> which determine what happens when the left and right hand sides have different lengths. This is important for operations like <code>flights |&gt; mutate(air_time = air_time / 60)</code> because there are 336,776 numbers on the left of <code>/</code> but only one on the right.</p>
 <p>R handles mismatched lengths by <strong>recycling,</strong> or repeating, the short vector. We can see this in operation more easily if we create some vectors outside of a data frame:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">20</span>)</span>
@@ -319,8 +680,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The code runs without error, but it doesn’t return what you want. Because of the recycling rules it finds flights in odd numbered rows that departed in January and flights in even numbered rows that departed in February. And unfortunately there’s no warning because <code>flights</code> has an even number of rows.</p>
 <p>To protect you from this type of silent failure, most tidyverse functions use a stricter form of recycling that only recycles single values. Unfortunately that doesn’t help here, or in many other cases, because the key computation is performed by the base R function <code>==</code>, not <code>filter()</code>.</p>
 </section>
-<section id="minimum-and-maximum" class="level3">
-<h3 class="anchored" data-anchor-id="minimum-and-maximum">Minimum and maximum</h3>
+<section id="minimum-and-maximum" class="level3" data-number="14.4.2">
+<h3 data-number="14.4.2" class="anchored" data-anchor-id="minimum-and-maximum"><span class="header-section-number">14.4.2</span> Minimum and maximum</h3>
 <p>The arithmetic functions work with pairs of variables. Two closely related functions are <code>pmin()</code> and <code>pmax()</code>, which when given two or more variables will return the smallest or largest value in each row:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
@@ -357,8 +718,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3     7    NA     1     7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="modular-arithmetic" class="level3">
-<h3 class="anchored" data-anchor-id="modular-arithmetic">Modular arithmetic</h3>
+<section id="modular-arithmetic" class="level3" data-number="14.4.3">
+<h3 data-number="14.4.3" class="anchored" data-anchor-id="modular-arithmetic"><span class="header-section-number">14.4.3</span> Modular arithmetic</h3>
 <p>Modular arithmetic is the technical name for the type of math you did before you learned about decimal places, i.e.&nbsp;division that yields a whole number and a remainder. In R, <code>%/%</code> does integer division and <code>%%</code> computes the remainder:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> <span class="sc">%/%</span> <span class="dv">3</span></span>
@@ -385,7 +746,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6            558     5     58</span></span>
 <span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 336,770 more rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We can combine that with the <code>mean(is.na(x))</code> trick from <strong>?@sec-logical-summaries</strong> to see how the proportion of cancelled flights varies over the course of the day. The results are shown in <a href="#fig-prop-cancelled" class="quarto-xref">Figure&nbsp;1</a>.</p>
+<p>We can combine that with the <code>mean(is.na(x))</code> trick from <a href="logicals.html#sec-logical-summaries" class="quarto-xref"><span>Section 13.4</span></a> to see how the proportion of cancelled flights varies over the course of the day. The results are shown in <a href="#fig-prop-cancelled" class="quarto-xref">Figure&nbsp;<span>14.1</span></a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> </span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="at">hour =</span> sched_dep_time <span class="sc">%/%</span> <span class="dv">100</span>) <span class="sc">|&gt;</span> </span>
@@ -401,19 +762,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <img src="numbers_files/figure-html/fig-prop-cancelled-1.png" class="img-fluid figure-img" alt="A line plot showing how proportion of cancelled flights changes over the course of the day. The proportion starts low at around 0.5% at 5am, then steadily increases over the course of the day until peaking at 4% at 7pm. The proportion of cancelled flights then drops rapidly getting down to around 1% by midnight." width="576">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-prop-cancelled-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: A line plot with scheduled departure hour on the x-axis, and proportion of cancelled flights on the y-axis. Cancellations seem to accumulate over the course of the day until 8pm, very late flights are much less likely to be cancelled.
+Figure&nbsp;14.1: A line plot with scheduled departure hour on the x-axis, and proportion of cancelled flights on the y-axis. Cancellations seem to accumulate over the course of the day until 8pm, very late flights are much less likely to be cancelled.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="logarithms" class="level3">
-<h3 class="anchored" data-anchor-id="logarithms">Logarithms</h3>
+<section id="logarithms" class="level3" data-number="14.4.4">
+<h3 data-number="14.4.4" class="anchored" data-anchor-id="logarithms"><span class="header-section-number">14.4.4</span> Logarithms</h3>
 <p>Logarithms are an incredibly useful transformation for dealing with data that ranges across multiple orders of magnitude and converting exponential growth to linear growth. In R, you have a choice of three logarithms: <code>log()</code> (the natural log, base e), <code>log2()</code> (base 2), and <code>log10()</code> (base 10). We recommend using <code>log2()</code> or <code>log10()</code>. <code>log2()</code> is easy to interpret because a difference of 1 on the log scale corresponds to doubling on the original scale and a difference of -1 corresponds to halving; whereas <code>log10()</code> is easy to back-transform because (e.g.) 3 is 10^3 = 1000. The inverse of <code>log()</code> is <code>exp()</code>; to compute the inverse of <code>log2()</code> or <code>log10()</code> you’ll need to use <code>2^</code> or <code>10^</code>.</p>
 </section>
-<section id="sec-rounding" class="level3">
-<h3 class="anchored" data-anchor-id="sec-rounding">Rounding</h3>
+<section id="sec-rounding" class="level3" data-number="14.4.5">
+<h3 data-number="14.4.5" class="anchored" data-anchor-id="sec-rounding"><span class="header-section-number">14.4.5</span> Rounding</h3>
 <p>Use <code>round(x)</code> to round a number to the nearest integer:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">123.456</span>)</span>
@@ -465,8 +826,8 @@ Figure&nbsp;1: A line plot with scheduled departure hour on the x-axis, and prop
 <span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 123.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="cutting-numbers-into-ranges" class="level3">
-<h3 class="anchored" data-anchor-id="cutting-numbers-into-ranges">Cutting numbers into ranges</h3>
+<section id="cutting-numbers-into-ranges" class="level3" data-number="14.4.6">
+<h3 data-number="14.4.6" class="anchored" data-anchor-id="cutting-numbers-into-ranges"><span class="header-section-number">14.4.6</span> Cutting numbers into ranges</h3>
 <p>Use <code>cut()</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> to break up (aka bin) a numeric vector into discrete buckets:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>)</span>
@@ -498,8 +859,8 @@ Figure&nbsp;1: A line plot with scheduled departure hour on the x-axis, and prop
 </div>
 <p>See the documentation for other useful arguments like <code>right</code> and <code>include.lowest</code>, which control if the intervals are <code>[a, b)</code> or <code>(a, b]</code> and if the lowest interval should be <code>[a, b]</code>.</p>
 </section>
-<section id="sec-cumulative-and-rolling-aggregates" class="level3">
-<h3 class="anchored" data-anchor-id="sec-cumulative-and-rolling-aggregates">Cumulative and rolling aggregates</h3>
+<section id="sec-cumulative-and-rolling-aggregates" class="level3" data-number="14.4.7">
+<h3 data-number="14.4.7" class="anchored" data-anchor-id="sec-cumulative-and-rolling-aggregates"><span class="header-section-number">14.4.7</span> Cumulative and rolling aggregates</h3>
 <p>Base R provides <code>cumsum()</code>, <code>cumprod()</code>, <code>cummin()</code>, <code>cummax()</code> for running, or cumulative, sums, products, mins and maxes. dplyr provides <code>cummean()</code> for cumulative means. Cumulative sums tend to come up the most in practice:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
@@ -508,10 +869,10 @@ Figure&nbsp;1: A line plot with scheduled departure hour on the x-axis, and prop
 </div>
 <p>If you need more complex rolling or sliding aggregates, try the <a href="https://slider.r-lib.org/">slider</a> package.</p>
 </section>
-<section id="exercises-1" class="level3">
-<h3 class="anchored" data-anchor-id="exercises-1">Exercises</h3>
+<section id="exercises-1" class="level3" data-number="14.4.8">
+<h3 data-number="14.4.8" class="anchored" data-anchor-id="exercises-1"><span class="header-section-number">14.4.8</span> Exercises</h3>
 <ol type="1">
-<li><p>Explain in words what each line of the code used to generate <a href="#fig-prop-cancelled" class="quarto-xref">Figure&nbsp;1</a> does.</p></li>
+<li><p>Explain in words what each line of the code used to generate <a href="#fig-prop-cancelled" class="quarto-xref">Figure&nbsp;<span>14.1</span></a> does.</p></li>
 <li><p>What trigonometric functions does R provide? Guess some names and look up the documentation. Do they use degrees or radians?</p></li>
 <li><p>Currently <code>dep_time</code> and <code>sched_dep_time</code> are convenient to look at, but hard to compute with because they’re not really continuous numbers. You can see the basic problem by running the code below: there’s a gap between each hour.</p>
 <div class="cell">
@@ -525,11 +886,11 @@ Figure&nbsp;1: A line plot with scheduled departure hour on the x-axis, and prop
 </ol>
 </section>
 </section>
-<section id="general-transformations" class="level2">
-<h2 class="anchored" data-anchor-id="general-transformations">General transformations</h2>
+<section id="general-transformations" class="level2" data-number="14.5">
+<h2 data-number="14.5" class="anchored" data-anchor-id="general-transformations"><span class="header-section-number">14.5</span> General transformations</h2>
 <p>The following sections describe some general transformations which are often used with numeric vectors, but can be applied to all other column types.</p>
-<section id="ranks" class="level3">
-<h3 class="anchored" data-anchor-id="ranks">Ranks</h3>
+<section id="ranks" class="level3" data-number="14.5.1">
+<h3 data-number="14.5.1" class="anchored" data-anchor-id="ranks"><span class="header-section-number">14.5.1</span> Ranks</h3>
 <p>dplyr provides a number of ranking functions inspired by SQL, but you should always start with <code>dplyr::min_rank()</code>. It uses the typical method for dealing with ties, e.g., 1st, 2nd, 2nd, 4th.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="cn">NA</span>)</span>
@@ -584,8 +945,8 @@ Figure&nbsp;1: A line plot with scheduled departure hour on the x-axis, and prop
 <span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 4 more rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="offsets" class="level3">
-<h3 class="anchored" data-anchor-id="offsets">Offsets</h3>
+<section id="offsets" class="level3" data-number="14.5.2">
+<h3 data-number="14.5.2" class="anchored" data-anchor-id="offsets"><span class="header-section-number">14.5.2</span> Offsets</h3>
 <p><code>dplyr::lead()</code> and <code>dplyr::lag()</code> allow you to refer the values just before or just after the “current” value. They return a vector of the same length as the input, padded with <code>NA</code>s at the start or end:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">11</span>, <span class="dv">11</span>, <span class="dv">19</span>, <span class="dv">35</span>)</span>
@@ -608,8 +969,8 @@ Figure&nbsp;1: A line plot with scheduled departure hour on the x-axis, and prop
 </ul>
 <p>You can lead or lag by more than one position by using the second argument, <code>n</code>.</p>
 </section>
-<section id="consecutive-identifiers" class="level3">
-<h3 class="anchored" data-anchor-id="consecutive-identifiers">Consecutive identifiers</h3>
+<section id="consecutive-identifiers" class="level3" data-number="14.5.3">
+<h3 data-number="14.5.3" class="anchored" data-anchor-id="consecutive-identifiers"><span class="header-section-number">14.5.3</span> Consecutive identifiers</h3>
 <p>Sometimes you want to start a new group every time some event occurs. For example, when you’re looking at website data, it’s common to want to break up events into sessions, where you begin a new session after gap of more than <code>x</code> minutes since the last activity. For example, imagine you have the times when someone visited a website:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>events <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
@@ -635,7 +996,7 @@ Figure&nbsp;1: A line plot with scheduled departure hour on the x-axis, and prop
 <span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    10     5 TRUE   </span></span>
 <span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 8 more rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>But how do we go from that logical vector to something that we can <code>group_by()</code>? <code>cumsum()</code>, from <a href="#sec-cumulative-and-rolling-aggregates" class="quarto-xref">Section&nbsp;1.4.7</a>, comes to the rescue as gap, i.e.&nbsp;<code>has_gap</code> is <code>TRUE</code>, will increment <code>group</code> by one (<strong>?@sec-numeric-summaries-of-logicals</strong>):</p>
+<p>But how do we go from that logical vector to something that we can <code>group_by()</code>? <code>cumsum()</code>, from <a href="#sec-cumulative-and-rolling-aggregates" class="quarto-xref"><span>Section 14.4.7</span></a>, comes to the rescue as gap, i.e.&nbsp;<code>has_gap</code> is <code>TRUE</code>, will increment <code>group</code> by one (<a href="logicals.html#sec-numeric-summaries-of-logicals" class="quarto-xref"><span>Section 13.4.2</span></a>):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>events <span class="sc">|&gt;</span> <span class="fu">mutate</span>(</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">group =</span> <span class="fu">cumsum</span>(has_gap)</span>
@@ -676,8 +1037,8 @@ Figure&nbsp;1: A line plot with scheduled departure hour on the x-axis, and prop
 <span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 1 more row</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercises-2" class="level3">
-<h3 class="anchored" data-anchor-id="exercises-2">Exercises</h3>
+<section id="exercises-2" class="level3" data-number="14.5.4">
+<h3 data-number="14.5.4" class="anchored" data-anchor-id="exercises-2"><span class="header-section-number">14.5.4</span> Exercises</h3>
 <ol type="1">
 <li><p>Find the 10 most delayed flights using a ranking function. How do you want to handle ties? Carefully read the documentation for <code>min_rank()</code>.</p></li>
 <li><p>Which plane (<code>tailnum</code>) has the worst on-time record?</p></li>
@@ -701,13 +1062,13 @@ Figure&nbsp;1: A line plot with scheduled departure hour on the x-axis, and prop
 </ol>
 </section>
 </section>
-<section id="numeric-summaries" class="level2">
-<h2 class="anchored" data-anchor-id="numeric-summaries">Numeric summaries</h2>
+<section id="numeric-summaries" class="level2" data-number="14.6">
+<h2 data-number="14.6" class="anchored" data-anchor-id="numeric-summaries"><span class="header-section-number">14.6</span> Numeric summaries</h2>
 <p>Just using the counts, means, and sums that we’ve introduced already can get you a long way, but R provides many other useful summary functions. Here is a selection that you might find useful.</p>
-<section id="center" class="level3">
-<h3 class="anchored" data-anchor-id="center">Center</h3>
-<p>So far, we’ve mostly used <code>mean()</code> to summarize the center of a vector of values. As we’ve seen in <strong>?@sec-sample-size</strong>, because the mean is the sum divided by the count, it is sensitive to even just a few unusually high or low values. An alternative is to use the <code>median()</code>, which finds a value that lies in the “middle” of the vector, i.e.&nbsp;50% of the values is above it and 50% are below it. Depending on the shape of the distribution of the variable you’re interested in, mean or median might be a better measure of center. For example, for symmetric distributions we generally report the mean while for skewed distributions we usually report the median.</p>
-<p><a href="#fig-mean-vs-median" class="quarto-xref">Figure&nbsp;2</a> compares the mean vs.&nbsp;the median departure delay (in minutes) for each destination. The median delay is always smaller than the mean delay because flights sometimes leave multiple hours late, but never leave multiple hours early.</p>
+<section id="center" class="level3" data-number="14.6.1">
+<h3 data-number="14.6.1" class="anchored" data-anchor-id="center"><span class="header-section-number">14.6.1</span> Center</h3>
+<p>So far, we’ve mostly used <code>mean()</code> to summarize the center of a vector of values. As we’ve seen in <a href="data-transform.html#sec-sample-size" class="quarto-xref"><span>Section 4.6</span></a>, because the mean is the sum divided by the count, it is sensitive to even just a few unusually high or low values. An alternative is to use the <code>median()</code>, which finds a value that lies in the “middle” of the vector, i.e.&nbsp;50% of the values is above it and 50% are below it. Depending on the shape of the distribution of the variable you’re interested in, mean or median might be a better measure of center. For example, for symmetric distributions we generally report the mean while for skewed distributions we usually report the median.</p>
+<p><a href="#fig-mean-vs-median" class="quarto-xref">Figure&nbsp;<span>14.2</span></a> compares the mean vs.&nbsp;the median departure delay (in minutes) for each destination. The median delay is always smaller than the mean delay because flights sometimes leave multiple hours late, but never leave multiple hours early.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year, month, day) <span class="sc">|&gt;</span></span>
@@ -727,7 +1088,7 @@ Figure&nbsp;1: A line plot with scheduled departure hour on the x-axis, and prop
 <img src="numbers_files/figure-html/fig-mean-vs-median-1.png" class="img-fluid figure-img" alt="All points fall below a 45° line, meaning that the median delay is always less than the mean delay. Most points are clustered in a dense region of mean [0, 20] and median [-5, 5]. As the mean delay increases, the spread of the median also increases. There are two outlying points with mean ~60, median ~30, and mean ~85, median ~55." width="576">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mean-vs-median-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: A scatterplot showing the differences of summarizing daily departure delay with median instead of mean.
+Figure&nbsp;14.2: A scatterplot showing the differences of summarizing daily departure delay with median instead of mean.
 </figcaption>
 </figure>
 </div>
@@ -735,8 +1096,8 @@ Figure&nbsp;2: A scatterplot showing the differences of summarizing daily depart
 </div>
 <p>You might also wonder about the <strong>mode</strong>, or the most common value. This is a summary that only works well for very simple cases (which is why you might have learned about it in high school), but it doesn’t work well for many real datasets. If the data is discrete, there may be multiple most common values, and if the data is continuous, there might be no most common value because every value is ever so slightly different. For these reasons, the mode tends not to be used by statisticians and there’s no mode function included in base R<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
 </section>
-<section id="sec-min-max-summary" class="level3">
-<h3 class="anchored" data-anchor-id="sec-min-max-summary">Minimum, maximum, and quantiles</h3>
+<section id="sec-min-max-summary" class="level3" data-number="14.6.2">
+<h3 data-number="14.6.2" class="anchored" data-anchor-id="sec-min-max-summary"><span class="header-section-number">14.6.2</span> Minimum, maximum, and quantiles</h3>
 <p>What if you’re interested in locations other than the center? <code>min()</code> and <code>max()</code> will give you the largest and smallest values. Another powerful tool is <code>quantile()</code> which is a generalization of the median: <code>quantile(x, 0.25)</code> will find the value of <code>x</code> that is greater than 25% of the values, <code>quantile(x, 0.5)</code> is equivalent to the median, and <code>quantile(x, 0.95)</code> will find the value that’s greater than 95% of the values.</p>
 <p>For the <code>flights</code> data, you might want to look at the 95% quantile of delays rather than the maximum, because it will ignore the 5% of most delayed flights which can be quite extreme.</p>
 <div class="cell">
@@ -759,8 +1120,8 @@ Figure&nbsp;2: A scatterplot showing the differences of summarizing daily depart
 <span id="cb46-17"><a href="#cb46-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 359 more rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="spread" class="level3">
-<h3 class="anchored" data-anchor-id="spread">Spread</h3>
+<section id="spread" class="level3" data-number="14.6.3">
+<h3 data-number="14.6.3" class="anchored" data-anchor-id="spread"><span class="header-section-number">14.6.3</span> Spread</h3>
 <p>Sometimes you’re not so interested in where the bulk of the data lies, but in how it is spread out. Two commonly used summaries are the standard deviation, <code>sd(x)</code>, and the inter-quartile range, <code>IQR()</code>. We won’t explain <code>sd()</code> here since you’re probably already familiar with it, but <code>IQR()</code> might be new — it’s <code>quantile(x, 0.75) - quantile(x, 0.25)</code> and gives you the range that contains the middle 50% of the data.</p>
 <p>We can use this to reveal a small oddity in the <code>flights</code> data. You might expect the spread of the distance between origin and destination to be zero, since airports are always in the same place. But the code below reveals a data oddity for airport <a href="https://en.wikipedia.org/wiki/Eagle_County_Regional_Airport">EGE</a>:</p>
 <div class="cell">
@@ -779,10 +1140,10 @@ Figure&nbsp;2: A scatterplot showing the differences of summarizing daily depart
 <span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 JFK    EGE              1   103</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="distributions" class="level3">
-<h3 class="anchored" data-anchor-id="distributions">Distributions</h3>
+<section id="distributions" class="level3" data-number="14.6.4">
+<h3 data-number="14.6.4" class="anchored" data-anchor-id="distributions"><span class="header-section-number">14.6.4</span> Distributions</h3>
 <p>It’s worth remembering that all of the summary statistics described above are a way of reducing the distribution down to a single number. This means that they’re fundamentally reductive, and if you pick the wrong summary, you can easily miss important differences between groups. That’s why it’s always a good idea to visualize the distribution before committing to your summary statistics.</p>
-<p><a href="#fig-flights-dist" class="quarto-xref">Figure&nbsp;3</a> shows the overall distribution of departure delays. The distribution is so skewed that we have to zoom in to see the bulk of the data. This suggests that the mean is unlikely to be a good summary and we might prefer the median instead.</p>
+<p><a href="#fig-flights-dist" class="quarto-xref">Figure&nbsp;<span>14.3</span></a> shows the overall distribution of departure delays. The distribution is so skewed that we have to zoom in to see the bulk of the data. This suggests that the mean is unlikely to be a good summary and we might prefer the median instead.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-flights-dist" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two histograms of `dep_delay`. On the left, it's very hard to see any pattern except that there's a very large spike around zero, the bars rapidly decay in height, and for most of the plot, you can't see any bars because they are too short to see. On the right, where we've discarded delays of greater than two hours, we can see that the spike occurs slightly below zero (i.e. most flights leave a couple of minutes early), but there's still a very steep decay after that. ">
@@ -791,7 +1152,7 @@ Figure&nbsp;2: A scatterplot showing the differences of summarizing daily depart
 <img src="numbers_files/figure-html/fig-flights-dist-1.png" class="img-fluid figure-img" alt="Two histograms of `dep_delay`. On the left, it's very hard to see any pattern except that there's a very large spike around zero, the bars rapidly decay in height, and for most of the plot, you can't see any bars because they are too short to see. On the right, where we've discarded delays of greater than two hours, we can see that the spike occurs slightly below zero (i.e. most flights leave a couple of minutes early), but there's still a very steep decay after that. " width="576">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-flights-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: (Left) The histogram of the full data is extremely skewed making it hard to get any details. (Right) Zooming into delays of less than two hours makes it possible to see what’s happening with the bulk of the observations.
+Figure&nbsp;14.3: (Left) The histogram of the full data is extremely skewed making it hard to get any details. (Right) Zooming into delays of less than two hours makes it possible to see what’s happening with the bulk of the observations.
 </figcaption>
 </figure>
 </div>
@@ -811,10 +1172,10 @@ Figure&nbsp;3: (Left) The histogram of the full data is extremely skewed making 
 </div>
 </div>
 </div>
-<p>Don’t be afraid to explore your own custom summaries specifically tailored for the data that you’re working with. In this case, that might mean separately summarizing the flights that left early vs.&nbsp;the flights that left late, or given that the values are so heavily skewed, you might try a log-transformation. Finally, don’t forget what you learned in <strong>?@sec-sample-size</strong>: whenever creating numerical summaries, it’s a good idea to include the number of observations in each group.</p>
+<p>Don’t be afraid to explore your own custom summaries specifically tailored for the data that you’re working with. In this case, that might mean separately summarizing the flights that left early vs.&nbsp;the flights that left late, or given that the values are so heavily skewed, you might try a log-transformation. Finally, don’t forget what you learned in <a href="data-transform.html#sec-sample-size" class="quarto-xref"><span>Section 4.6</span></a>: whenever creating numerical summaries, it’s a good idea to include the number of observations in each group.</p>
 </section>
-<section id="positions" class="level3">
-<h3 class="anchored" data-anchor-id="positions">Positions</h3>
+<section id="positions" class="level3" data-number="14.6.5">
+<h3 data-number="14.6.5" class="anchored" data-anchor-id="positions"><span class="header-section-number">14.6.5</span> Positions</h3>
 <p>There’s one final type of summary that’s useful for numeric vectors, but also works with every other type of value: extracting a value at a specific position: <code>first(x)</code>, <code>last(x)</code>, and <code>nth(x, n)</code>.</p>
 <p>For example, we can find the first, fifth and last departure for each day:</p>
 <div class="cell">
@@ -840,7 +1201,7 @@ Figure&nbsp;3: (Left) The histogram of the full data is extremely skewed making 
 <span id="cb49-20"><a href="#cb49-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 359 more rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>(NB: Because dplyr functions use <code>_</code> to separate components of function and arguments names, these functions use <code>na_rm</code> instead of <code>na.rm</code>.)</p>
-<p>If you’re familiar with <code>[</code>, which we’ll come back to in <strong>?@sec-subset-many</strong>, you might wonder if you ever need these functions. There are three reasons: the <code>default</code> argument allows you to provide a default if the specified position doesn’t exist, the <code>order_by</code> argument allows you to locally override the order of the rows, and the <code>na_rm</code> argument allows you to drop missing values.</p>
+<p>If you’re familiar with <code>[</code>, which we’ll come back to in <a href="base-R.html#sec-subset-many" class="quarto-xref"><span>Section 28.2</span></a>, you might wonder if you ever need these functions. There are three reasons: the <code>default</code> argument allows you to provide a default if the specified position doesn’t exist, the <code>order_by</code> argument allows you to locally override the order of the rows, and the <code>na_rm</code> argument allows you to drop missing values.</p>
 <p>Extracting values at positions is complementary to filtering on ranks. Filtering gives you all variables, with each observation in a separate row:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> </span>
@@ -861,9 +1222,9 @@ Figure&nbsp;3: (Left) The histogram of the full data is extremely skewed making 
 <span id="cb50-16"><a href="#cb50-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 12 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, …</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="with-mutate" class="level3">
-<h3 class="anchored" data-anchor-id="with-mutate">With <code>mutate()</code></h3>
-<p>As the names suggest, the summary functions are typically paired with <code>summarize()</code>. However, because of the recycling rules we discussed in <a href="#sec-recycling" class="quarto-xref">Section&nbsp;1.4.1</a> they can also be usefully paired with <code>mutate()</code>, particularly when you want do some sort of group standardization. For example:</p>
+<section id="with-mutate" class="level3" data-number="14.6.6">
+<h3 data-number="14.6.6" class="anchored" data-anchor-id="with-mutate"><span class="header-section-number">14.6.6</span> With <code>mutate()</code></h3>
+<p>As the names suggest, the summary functions are typically paired with <code>summarize()</code>. However, because of the recycling rules we discussed in <a href="#sec-recycling" class="quarto-xref"><span>Section 14.4.1</span></a> they can also be usefully paired with <code>mutate()</code>, particularly when you want do some sort of group standardization. For example:</p>
 <ul>
 <li><code>x / sum(x)</code> calculates the proportion of a total.</li>
 <li><code>(x - mean(x)) / sd(x)</code> computes a Z-score (standardized to mean 0 and sd 1).</li>
@@ -871,8 +1232,8 @@ Figure&nbsp;3: (Left) The histogram of the full data is extremely skewed making 
 <li><code>x / first(x)</code> computes an index based on the first observation.</li>
 </ul>
 </section>
-<section id="exercises-3" class="level3">
-<h3 class="anchored" data-anchor-id="exercises-3">Exercises</h3>
+<section id="exercises-3" class="level3" data-number="14.6.7">
+<h3 data-number="14.6.7" class="anchored" data-anchor-id="exercises-3"><span class="header-section-number">14.6.7</span> Exercises</h3>
 <ol type="1">
 <li><p>Brainstorm at least 5 different ways to assess the typical delay characteristics of a group of flights. When is <code>mean()</code> useful? When is <code>median()</code> useful? When might you want to use something else? Should you use arrival delay or departure delay? Why might you want to use data from <code>planes</code>?</p></li>
 <li><p>Which destinations show the greatest variation in air speed?</p></li>
@@ -880,13 +1241,12 @@ Figure&nbsp;3: (Left) The histogram of the full data is extremely skewed making 
 </ol>
 </section>
 </section>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<section id="summary" class="level2" data-number="14.7">
+<h2 data-number="14.7" class="anchored" data-anchor-id="summary"><span class="header-section-number">14.7</span> Summary</h2>
 <p>You’re already familiar with many tools for working with numbers, and after reading this chapter you now know how to use them in R. You’ve also learned a handful of useful general transformations that are commonly, but not exclusively, applied to numeric vectors like ranks and offsets. Finally, you worked through a number of numeric summaries, and discussed a few of the statistical challenges that you should consider.</p>
 <p>Over the next two chapters, we’ll dive into working with strings with the stringr package. Strings are a big topic so they get two chapters, one on the fundamentals of strings and one on regular expressions.</p>
 
 
-</section>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
@@ -989,7 +1349,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/emunkhtsetseg\.github\.io\/r4ds\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1317,7 +1677,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./logicals.html" class="pagination-link" aria-label="Logical vectors">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Logical vectors</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./strings.html" class="pagination-link" aria-label="Strings">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Strings</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/emunkhtsetseg/r4ds/edit/main/numbers.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emunkhtsetseg/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
 
 
 

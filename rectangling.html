@@ -8,7 +8,7 @@
 
 <meta name="author" content="Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund">
 
-<title>rectangling</title>
+<title>24&nbsp; Hierarchical data – R for Data Science (2e)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,11 +59,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./webscraping.html" rel="next">
+<link href="./arrow.html" rel="prev">
+<link href="./cover.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -72,7 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-07ba0ad10f5680c660e360ac31d2f3b6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a931f05f3074483020850101f44f8acc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4e73071aaf4ad36f30f53cb9d4ee01e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -105,28 +109,379 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="fullcontent">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./import.html">Import</a></li><li class="breadcrumb-item"><a href="./rectangling.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Hierarchical data</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R for Data Science (2e)</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/emunkhtsetseg/r4ds/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">тавтай морил</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./preface-2e.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface to the second edition</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./whole-game.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Whole game</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-visualize.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data visualization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workflow-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Workflow: basics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-transform.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data transformation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workflow-style.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Workflow: code style</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-tidy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data tidying</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workflow-scripts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Workflow: scripts and projects</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-import.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data import</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workflow-help.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Workflow: getting help</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./visualize.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualize</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./layers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Layers</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EDA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Exploratory data analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./communication.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Communication</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./transform.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transform</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./logicals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Logical vectors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./numbers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Numbers</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./strings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Strings</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./regexps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Regular expressions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./factors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Factors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./datetimes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Dates and times</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./missing-values.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Missing values</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./joins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Joins</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./import.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Import</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./spreadsheets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Spreadsheets</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./databases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Databases</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./arrow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Arrow</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./rectangling.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Hierarchical data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./webscraping.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Web scraping</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./program.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Program</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./iteration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Iteration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./base-R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">A field guide to base R</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./communicate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Communicate</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./quarto-formats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Quarto formats</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">24.1</span> Introduction</a>
+  <ul class="collapse">
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites"><span class="header-section-number">24.1.1</span> Prerequisites</a></li>
+  </ul></li>
+  <li><a href="#lists" id="toc-lists" class="nav-link" data-scroll-target="#lists"><span class="header-section-number">24.2</span> Lists</a>
+  <ul class="collapse">
+  <li><a href="#hierarchy" id="toc-hierarchy" class="nav-link" data-scroll-target="#hierarchy"><span class="header-section-number">24.2.1</span> Hierarchy</a></li>
+  <li><a href="#list-columns" id="toc-list-columns" class="nav-link" data-scroll-target="#list-columns"><span class="header-section-number">24.2.2</span> List-columns</a></li>
+  </ul></li>
+  <li><a href="#unnesting" id="toc-unnesting" class="nav-link" data-scroll-target="#unnesting"><span class="header-section-number">24.3</span> Unnesting</a>
+  <ul class="collapse">
+  <li><a href="#unnest_wider" id="toc-unnest_wider" class="nav-link" data-scroll-target="#unnest_wider"><span class="header-section-number">24.3.1</span> <code>unnest_wider()</code></a></li>
+  <li><a href="#unnest_longer" id="toc-unnest_longer" class="nav-link" data-scroll-target="#unnest_longer"><span class="header-section-number">24.3.2</span> <code>unnest_longer()</code></a></li>
+  <li><a href="#inconsistent-types" id="toc-inconsistent-types" class="nav-link" data-scroll-target="#inconsistent-types"><span class="header-section-number">24.3.3</span> Inconsistent types</a></li>
+  <li><a href="#other-functions" id="toc-other-functions" class="nav-link" data-scroll-target="#other-functions"><span class="header-section-number">24.3.4</span> Other functions</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">24.3.5</span> Exercises</a></li>
+  </ul></li>
+  <li><a href="#case-studies" id="toc-case-studies" class="nav-link" data-scroll-target="#case-studies"><span class="header-section-number">24.4</span> Case studies</a>
+  <ul class="collapse">
+  <li><a href="#very-wide-data" id="toc-very-wide-data" class="nav-link" data-scroll-target="#very-wide-data"><span class="header-section-number">24.4.1</span> Very wide data</a></li>
+  <li><a href="#relational-data" id="toc-relational-data" class="nav-link" data-scroll-target="#relational-data"><span class="header-section-number">24.4.2</span> Relational data</a></li>
+  <li><a href="#deeply-nested" id="toc-deeply-nested" class="nav-link" data-scroll-target="#deeply-nested"><span class="header-section-number">24.4.3</span> Deeply nested</a></li>
+  <li><a href="#exercises-1" id="toc-exercises-1" class="nav-link" data-scroll-target="#exercises-1"><span class="header-section-number">24.4.4</span> Exercises</a></li>
+  </ul></li>
+  <li><a href="#json" id="toc-json" class="nav-link" data-scroll-target="#json"><span class="header-section-number">24.5</span> JSON</a>
+  <ul class="collapse">
+  <li><a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types"><span class="header-section-number">24.5.1</span> Data types</a></li>
+  <li><a href="#jsonlite" id="toc-jsonlite" class="nav-link" data-scroll-target="#jsonlite"><span class="header-section-number">24.5.2</span> jsonlite</a></li>
+  <li><a href="#starting-the-rectangling-process" id="toc-starting-the-rectangling-process" class="nav-link" data-scroll-target="#starting-the-rectangling-process"><span class="header-section-number">24.5.3</span> Starting the rectangling process</a></li>
+  <li><a href="#exercises-2" id="toc-exercises-2" class="nav-link" data-scroll-target="#exercises-2"><span class="header-section-number">24.5.4</span> Exercises</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">24.6</span> Summary</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/emunkhtsetseg/r4ds/edit/main/rectangling.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emunkhtsetseg/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./import.html">Import</a></li><li class="breadcrumb-item"><a href="./rectangling.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Hierarchical data</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-rectangling" class="quarto-section-identifier"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Hierarchical data</span></span></h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="sec-rectangling" class="level1">
-<h1>Hierarchical data</h1>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2" data-number="24.1">
+<h2 data-number="24.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">24.1</span> Introduction</h2>
 <p>In this chapter, you’ll learn the art of data <strong>rectangling</strong>: taking data that is fundamentally hierarchical, or tree-like, and converting it into a rectangular data frame made up of rows and columns. This is important because hierarchical data is surprisingly common, especially when working with data that comes from the web.</p>
 <p>To learn about rectangling, you’ll need to first learn about lists, the data structure that makes hierarchical data possible. Then you’ll learn about two crucial tidyr functions: <code>tidyr::unnest_longer()</code> and <code>tidyr::unnest_wider()</code>. We’ll then show you a few case studies, applying these simple functions again and again to solve real problems. We’ll finish off by talking about JSON, the most frequent source of hierarchical datasets and a common format for data exchange on the web.</p>
-<section id="prerequisites" class="level3">
-<h3 class="anchored" data-anchor-id="prerequisites">Prerequisites</h3>
+<section id="prerequisites" class="level3" data-number="24.1.1">
+<h3 data-number="24.1.1" class="anchored" data-anchor-id="prerequisites"><span class="header-section-number">24.1.1</span> Prerequisites</h3>
 <p>In this chapter, we’ll use many functions from tidyr, a core member of the tidyverse. We’ll also use repurrrsive to provide some interesting datasets for rectangling practice, and we’ll finish by using jsonlite to read JSON files into R lists.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -135,8 +490,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="lists" class="level2">
-<h2 class="anchored" data-anchor-id="lists">Lists</h2>
+<section id="lists" class="level2" data-number="24.2">
+<h2 data-number="24.2" class="anchored" data-anchor-id="lists"><span class="header-section-number">24.2</span> Lists</h2>
 <p>So far you’ve worked with data frames that contain simple vectors like integers, numbers, characters, date-times, and factors. These vectors are simple because they’re homogeneous: every element is of the same data type. If you want to store elements of different types in the same vector, you’ll need a <strong>list</strong>, which you create with <code>list()</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="st">"a"</span>, <span class="cn">TRUE</span>)</span>
@@ -177,8 +532,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ c: int [1:4] 1 2 3 4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>As you can see, <code>str()</code> displays each child of the list on its own line. It displays the name, if present, then an abbreviation of the type, then the first few values.</p>
-<section id="hierarchy" class="level3">
-<h3 class="anchored" data-anchor-id="hierarchy">Hierarchy</h3>
+<section id="hierarchy" class="level3" data-number="24.2.1">
+<h3 data-number="24.2.1" class="anchored" data-anchor-id="hierarchy"><span class="header-section-number">24.2.1</span> Hierarchy</h3>
 <p>Lists can contain any type of object, including other lists. This makes them suitable for representing hierarchical (tree-like) structures:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x3 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">list</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="fu">list</span>(<span class="dv">3</span>, <span class="dv">4</span>))</span>
@@ -219,7 +574,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   .. .. ..$ :List of 1</span></span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   .. .. .. ..$ : num 5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>As lists get even larger and more complex, <code>str()</code> eventually starts to fail, and you’ll need to switch to <code>View()</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. <a href="#fig-view-collapsed" class="quarto-xref">Figure&nbsp;1</a> shows the result of calling <code>View(x5)</code>. The viewer starts by showing just the top level of the list, but you can interactively expand any of the components to see more, as in <a href="#fig-view-expand-1" class="quarto-xref">Figure&nbsp;2</a>. RStudio will also show you the code you need to access that element, as in <a href="#fig-view-expand-2" class="quarto-xref">Figure&nbsp;3</a>. We’ll come back to how this code works in <strong>?@sec-subset-one</strong>.</p>
+<p>As lists get even larger and more complex, <code>str()</code> eventually starts to fail, and you’ll need to switch to <code>View()</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. <a href="#fig-view-collapsed" class="quarto-xref">Figure&nbsp;<span>24.1</span></a> shows the result of calling <code>View(x5)</code>. The viewer starts by showing just the top level of the list, but you can interactively expand any of the components to see more, as in <a href="#fig-view-expand-1" class="quarto-xref">Figure&nbsp;<span>24.2</span></a>. RStudio will also show you the code you need to access that element, as in <a href="#fig-view-expand-2" class="quarto-xref">Figure&nbsp;<span>24.3</span></a>. We’ll come back to how this code works in <a href="base-R.html#sec-subset-one" class="quarto-xref"><span>Section 28.3</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-view-collapsed" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A screenshot of RStudio showing the list-viewer. It shows the two children of x5: the first child is a double vector and the second child is a list. A rightward facing triable indicates that the second child itself has children but you can't see them. ">
@@ -228,7 +583,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <img src="screenshots/View-1.png" class="img-fluid figure-img" alt="A screenshot of RStudio showing the list-viewer. It shows the two children of x5: the first child is a double vector and the second child is a list. A rightward facing triable indicates that the second child itself has children but you can't see them. " width="641">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-view-collapsed-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: The RStudio view lets you interactively explore a complex list. The viewer opens showing only the top level of the list.
+Figure&nbsp;24.1: The RStudio view lets you interactively explore a complex list. The viewer opens showing only the top level of the list.
 </figcaption>
 </figure>
 </div>
@@ -242,7 +597,7 @@ Figure&nbsp;1: The RStudio view lets you interactively explore a complex list. T
 <img src="screenshots/View-2.png" class="img-fluid figure-img" alt="Another screenshot of the list-viewer having expand the second child of x5. It also has two children, a double vector and another list. " width="641">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-view-expand-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Clicking on the rightward facing triangle expands that component of the list so that you can also see its children.
+Figure&nbsp;24.2: Clicking on the rightward facing triangle expands that component of the list so that you can also see its children.
 </figcaption>
 </figure>
 </div>
@@ -256,15 +611,15 @@ Figure&nbsp;2: Clicking on the rightward facing triangle expands that component 
 <img src="screenshots/View-3.png" class="img-fluid figure-img" alt="Another screenshot, having expanded the grandchild of x5 to see its two children, again a double vector and a list. " width="641">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-view-expand-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: You can repeat this operation as many times as needed to get to the data you’re interested in. Note the bottom-left corner: if you click an element of the list, RStudio will give you the subsetting code needed to access it, in this case <code>x5[[2]][[2]][[2]]</code>.
+Figure&nbsp;24.3: You can repeat this operation as many times as needed to get to the data you’re interested in. Note the bottom-left corner: if you click an element of the list, RStudio will give you the subsetting code needed to access it, in this case <code>x5[[2]][[2]][[2]]</code>.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="list-columns" class="level3">
-<h3 class="anchored" data-anchor-id="list-columns">List-columns</h3>
+<section id="list-columns" class="level3" data-number="24.2.2">
+<h3 data-number="24.2.2" class="anchored" data-anchor-id="list-columns"><span class="header-section-number">24.2.2</span> List-columns</h3>
 <p>Lists can also live inside a tibble, where we call them list-columns. List-columns are useful because they allow you to place objects in a tibble that wouldn’t usually belong in there. In particular, list-columns are used a lot in the <a href="https://www.tidymodels.org">tidymodels</a> ecosystem, because they allow you to store things like model outputs or resamples in a data frame.</p>
 <p>Here’s a simple example of a list-column:</p>
 <div class="cell">
@@ -289,7 +644,7 @@ Figure&nbsp;3: You can repeat this operation as many times as needed to get to t
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;int&gt; &lt;chr&gt; &lt;list&gt;    </span></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     1 a     &lt;list [2]&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Computing with list-columns is harder, but that’s because computing with lists is harder in general; we’ll come back to that in <strong>?@sec-iteration</strong>. In this chapter, we’ll focus on unnesting list-columns out into regular variables so you can use your existing tools on them.</p>
+<p>Computing with list-columns is harder, but that’s because computing with lists is harder in general; we’ll come back to that in <a href="iteration.html" class="quarto-xref"><span>Chapter 27</span></a>. In this chapter, we’ll focus on unnesting list-columns out into regular variables so you can use your existing tools on them.</p>
 <p>The default print method just displays a rough summary of the contents. The list column could be arbitrarily complex, so there’s no good way to print it. If you want to see it, you’ll need to pull out just the one list-column and apply one of the techniques that you’ve learned above, like <code>df |&gt; pull(z) |&gt; str()</code> or <code>df |&gt; pull(z) |&gt; View()</code>.</p>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -324,8 +679,8 @@ Base R
 </div>
 </section>
 </section>
-<section id="unnesting" class="level2">
-<h2 class="anchored" data-anchor-id="unnesting">Unnesting</h2>
+<section id="unnesting" class="level2" data-number="24.3">
+<h2 data-number="24.3" class="anchored" data-anchor-id="unnesting"><span class="header-section-number">24.3</span> Unnesting</h2>
 <p>Now that you’ve learned the basics of lists and list-columns, let’s explore how you can turn them back into regular rows and columns. Here we’ll use very simple sample data so you can get the basic idea; in the next section we’ll switch to real data.</p>
 <p>List-columns tend to come in two basic forms: named and unnamed. When the children are <strong>named</strong>, they tend to have the same names in every row. For example, in <code>df1</code>, every element of list-column <code>y</code> has two elements named <code>a</code> and <code>b</code>. Named list-columns naturally unnest into columns: each named element becomes a new named column.</p>
 <div class="cell">
@@ -347,8 +702,8 @@ Base R
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>tidyr provides two functions for these two cases: <code>unnest_wider()</code> and <code>unnest_longer()</code>. The following sections explain how they work.</p>
-<section id="unnest_wider" class="level3">
-<h3 class="anchored" data-anchor-id="unnest_wider"><code>unnest_wider()</code></h3>
+<section id="unnest_wider" class="level3" data-number="24.3.1">
+<h3 data-number="24.3.1" class="anchored" data-anchor-id="unnest_wider"><span class="header-section-number">24.3.1</span> <code>unnest_wider()</code></h3>
 <p>When each row has the same number of elements with the same names, like <code>df1</code>, it’s natural to put each component into its own column with <code>unnest_wider()</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> </span>
@@ -372,8 +727,8 @@ Base R
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3     3    31    32</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="unnest_longer" class="level3">
-<h3 class="anchored" data-anchor-id="unnest_longer"><code>unnest_longer()</code></h3>
+<section id="unnest_longer" class="level3" data-number="24.3.2">
+<h3 data-number="24.3.2" class="anchored" data-anchor-id="unnest_longer"><span class="header-section-number">24.3.2</span> <code>unnest_longer()</code></h3>
 <p>When each row contains an unnamed list, it’s most natural to put each element into its own row with <code>unnest_longer()</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="sc">|&gt;</span> </span>
@@ -406,8 +761,8 @@ Base R
 </div>
 <p>We get zero rows in the output, so the row effectively disappears. If you want to preserve that row, adding <code>NA</code> in <code>y</code>, set <code>keep_empty = TRUE</code>.</p>
 </section>
-<section id="inconsistent-types" class="level3">
-<h3 class="anchored" data-anchor-id="inconsistent-types">Inconsistent types</h3>
+<section id="inconsistent-types" class="level3" data-number="24.3.3">
+<h3 data-number="24.3.3" class="anchored" data-anchor-id="inconsistent-types"><span class="header-section-number">24.3.3</span> Inconsistent types</h3>
 <p>What happens if you unnest a list-column that contains different types of vector? For example, take the following dataset where the list-column <code>y</code> contains two numbers, a character, and a logical, which can’t normally be mixed in a single column.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df4 <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
@@ -429,10 +784,10 @@ Base R
 <span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 b     &lt;dbl [1]&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>As you can see, the output contains a list-column, but every element of the list-column contains a single element. Because <code>unnest_longer()</code> can’t find a common type of vector, it keeps the original types in a list-column. You might wonder if this breaks the commandment that every element of a column must be the same type. It doesn’t: every element is a list, even though the contents are of different types.</p>
-<p>Dealing with inconsistent types is challenging and the details depend on the precise nature of the problem and your goals, but you’ll most likely need tools from <strong>?@sec-iteration</strong>.</p>
+<p>Dealing with inconsistent types is challenging and the details depend on the precise nature of the problem and your goals, but you’ll most likely need tools from <a href="iteration.html" class="quarto-xref"><span>Chapter 27</span></a>.</p>
 </section>
-<section id="other-functions" class="level3">
-<h3 class="anchored" data-anchor-id="other-functions">Other functions</h3>
+<section id="other-functions" class="level3" data-number="24.3.4">
+<h3 data-number="24.3.4" class="anchored" data-anchor-id="other-functions"><span class="header-section-number">24.3.4</span> Other functions</h3>
 <p>tidyr has a few other useful rectangling functions that we’re not going to cover in this book:</p>
 <ul>
 <li><code>unnest_auto()</code> automatically picks between <code>unnest_longer()</code> and <code>unnest_wider()</code> based on the structure of the list-column. It’s great for rapid exploration, but ultimately it’s a bad idea because it doesn’t force you to understand how your data is structured, and makes your code harder to understand.</li>
@@ -440,8 +795,8 @@ Base R
 </ul>
 <p>These functions are good to know about as you might encounter them when reading other people’s code or tackling rarer rectangling challenges yourself.</p>
 </section>
-<section id="exercises" class="level3">
-<h3 class="anchored" data-anchor-id="exercises">Exercises</h3>
+<section id="exercises" class="level3" data-number="24.3.5">
+<h3 data-number="24.3.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">24.3.5</span> Exercises</h3>
 <ol type="1">
 <li><p>What happens when you use <code>unnest_wider()</code> with unnamed list-columns like <code>df2</code>? What argument is now necessary? What happens to missing values?</p></li>
 <li><p>What happens when you use <code>unnest_longer()</code> with named list-columns like <code>df1</code>? What additional information do you get in the output? How can you suppress that extra detail?</p></li>
@@ -456,11 +811,11 @@ Base R
 </ol>
 </section>
 </section>
-<section id="case-studies" class="level2">
-<h2 class="anchored" data-anchor-id="case-studies">Case studies</h2>
+<section id="case-studies" class="level2" data-number="24.4">
+<h2 data-number="24.4" class="anchored" data-anchor-id="case-studies"><span class="header-section-number">24.4</span> Case studies</h2>
 <p>The main difference between the simple examples we used above and real data is that real data typically contains multiple levels of nesting that require multiple calls to <code>unnest_longer()</code> and/or <code>unnest_wider()</code>. To show that in action, this section works through three real rectangling challenges using datasets from the repurrrsive package.</p>
-<section id="very-wide-data" class="level3">
-<h3 class="anchored" data-anchor-id="very-wide-data">Very wide data</h3>
+<section id="very-wide-data" class="level3" data-number="24.4.1">
+<h3 data-number="24.4.1" class="anchored" data-anchor-id="very-wide-data"><span class="header-section-number">24.4.1</span> Very wide data</h3>
 <p>We’ll start with <code>gh_repos</code>. This is a list that contains data about a collection of GitHub repositories retrieved using the GitHub API. It’s a very deeply nested list so it’s difficult to show the structure in this book; we recommend exploring a little on your own with <code>View(gh_repos)</code> before we continue.</p>
 <p><code>gh_repos</code> is a list, but our tools work with list-columns, so we’ll begin by putting it into a tibble. We call this column <code>json</code> for reasons we’ll get to later.</p>
 <div class="cell">
@@ -572,8 +927,8 @@ Base R
 </div>
 <p>This gives another wide dataset, but you can get the sense that <code>owner</code> appears to contain a lot of additional data about the person who “owns” the repository.</p>
 </section>
-<section id="relational-data" class="level3">
-<h3 class="anchored" data-anchor-id="relational-data">Relational data</h3>
+<section id="relational-data" class="level3" data-number="24.4.2">
+<h3 data-number="24.4.2" class="anchored" data-anchor-id="relational-data"><span class="header-section-number">24.4.2</span> Relational data</h3>
 <p>Nested data is sometimes used to represent data that we’d usually spread across multiple data frames. For example, take <code>got_chars</code> which contains data about characters that appear in the Game of Thrones books and TV series. Like <code>gh_repos</code> it’s a list, so we start by turning it into a list-column of a tibble:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>chars <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">json =</span> got_chars)</span>
@@ -678,8 +1033,8 @@ Base R
 </div>
 <p>You could imagine creating a table like this for each of the list-columns, then using joins to combine them with the character data as you need it.</p>
 </section>
-<section id="deeply-nested" class="level3">
-<h3 class="anchored" data-anchor-id="deeply-nested">Deeply nested</h3>
+<section id="deeply-nested" class="level3" data-number="24.4.3">
+<h3 data-number="24.4.3" class="anchored" data-anchor-id="deeply-nested"><span class="header-section-number">24.4.3</span> Deeply nested</h3>
 <p>We’ll finish off these case studies with a list-column that’s very deeply nested and requires repeated rounds of <code>unnest_wider()</code> and <code>unnest_longer()</code> to unravel: <code>gmaps_cities</code>. This is a two column tibble containing five city names and the results of using Google’s <a href="https://developers.google.com/maps/documentation/geocoding">geocoding API</a> to determine their location:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>gmaps_cities</span>
@@ -832,8 +1187,8 @@ Base R
 </div>
 <p>If these case studies have whetted your appetite for more real-life rectangling, you can see a few more examples in <code>vignette("rectangling", package = "tidyr")</code>.</p>
 </section>
-<section id="exercises-1" class="level3">
-<h3 class="anchored" data-anchor-id="exercises-1">Exercises</h3>
+<section id="exercises-1" class="level3" data-number="24.4.4">
+<h3 data-number="24.4.4" class="anchored" data-anchor-id="exercises-1"><span class="header-section-number">24.4.4</span> Exercises</h3>
 <ol type="1">
 <li><p>Roughly estimate when <code>gh_repos</code> was created. Why can you only roughly estimate the date?</p></li>
 <li><p>The <code>owner</code> column of <code>gh_repo</code> contains a lot of duplicated information because each owner can have many repos. Can you construct an <code>owners</code> data frame that contains one row for each owner? (Hint: does <code>distinct()</code> work with <code>list-cols</code>?)</p></li>
@@ -854,11 +1209,11 @@ Base R
 </ol>
 </section>
 </section>
-<section id="json" class="level2">
-<h2 class="anchored" data-anchor-id="json">JSON</h2>
+<section id="json" class="level2" data-number="24.5">
+<h2 data-number="24.5" class="anchored" data-anchor-id="json"><span class="header-section-number">24.5</span> JSON</h2>
 <p>All of the case studies in the previous section were sourced from wild-caught JSON. JSON is short for <strong>j</strong>ava<strong>s</strong>cript <strong>o</strong>bject <strong>n</strong>otation and is the way that most web APIs return data. It’s important to understand it because while JSON and R’s data types are pretty similar, there isn’t a perfect 1-to-1 mapping, so it’s good to understand a bit about JSON if things go wrong.</p>
-<section id="data-types" class="level3">
-<h3 class="anchored" data-anchor-id="data-types">Data types</h3>
+<section id="data-types" class="level3" data-number="24.5.1">
+<h3 data-number="24.5.1" class="anchored" data-anchor-id="data-types"><span class="header-section-number">24.5.1</span> Data types</h3>
 <p>JSON is a simple format designed to be easily read and written by machines, not humans. It has six key data types. Four of them are scalars:</p>
 <ul>
 <li>The simplest type is a null (<code>null</code>) which plays the same role as <code>NA</code> in R. It represents the absence of data.</li>
@@ -870,8 +1225,8 @@ Base R
 <p>Both arrays and objects are similar to lists in R; the difference is whether or not they’re named. An <strong>array</strong> is like an unnamed list, and is written with <code>[]</code>. For example <code>[1, 2, 3]</code> is an array containing 3 numbers, and <code>[null, 1, "string", false]</code> is an array that contains a null, a number, a string, and a boolean. An <strong>object</strong> is like a named list, and is written with <code>{}</code>. The names (keys in JSON terminology) are strings, so must be surrounded by quotes. For example, <code>{"x": 1, "y": 2}</code> is an object that maps <code>x</code> to 1 and <code>y</code> to 2.</p>
 <p>Note that JSON doesn’t have any native way to represent dates or date-times, so they’re often stored as strings, and you’ll need to use <code>readr::parse_date()</code> or <code>readr::parse_datetime()</code> to turn them into the correct data structure. Similarly, JSON’s rules for representing floating point numbers in JSON are a little imprecise, so you’ll also sometimes find numbers stored in strings. Apply <code>readr::parse_double()</code> as needed to get the correct variable type.</p>
 </section>
-<section id="jsonlite" class="level3">
-<h3 class="anchored" data-anchor-id="jsonlite">jsonlite</h3>
+<section id="jsonlite" class="level3" data-number="24.5.2">
+<h3 data-number="24.5.2" class="anchored" data-anchor-id="jsonlite"><span class="header-section-number">24.5.2</span> jsonlite</h3>
 <p>To convert JSON into R data structures, we recommend the jsonlite package, by Jeroen Ooms. We’ll use only two jsonlite functions: <code>read_json()</code> and <code>parse_json()</code>. In real life, you’ll use <code>read_json()</code> to read a JSON file from disk. For example, the repurrsive package also provides the source for <code>gh_user</code> as a JSON file and you can read it with <code>read_json()</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A path to a json file inside the package:</span></span>
@@ -903,8 +1258,8 @@ Base R
 </div>
 <p>jsonlite has another important function called <code>fromJSON()</code>. We don’t use it here because it performs automatic simplification (<code>simplifyVector = TRUE</code>). This often works well, particularly in simple cases, but we think you’re better off doing the rectangling yourself so you know exactly what’s happening and can more easily handle the most complicated nested structures.</p>
 </section>
-<section id="starting-the-rectangling-process" class="level3">
-<h3 class="anchored" data-anchor-id="starting-the-rectangling-process">Starting the rectangling process</h3>
+<section id="starting-the-rectangling-process" class="level3" data-number="24.5.3">
+<h3 data-number="24.5.3" class="anchored" data-anchor-id="starting-the-rectangling-process"><span class="header-section-number">24.5.3</span> Starting the rectangling process</h3>
 <p>In most cases, JSON files contain a single top-level array, because they’re designed to provide data about multiple “things”, e.g., multiple pages, or multiple records, or multiple results. In this case, you’ll start your rectangling with <code>tibble(json)</code> so that each element becomes a row:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>json <span class="ot">&lt;-</span> <span class="st">'[</span></span>
@@ -966,8 +1321,8 @@ Base R
 <span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 Susan    27</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercises-2" class="level3">
-<h3 class="anchored" data-anchor-id="exercises-2">Exercises</h3>
+<section id="exercises-2" class="level3" data-number="24.5.4">
+<h3 data-number="24.5.4" class="anchored" data-anchor-id="exercises-2"><span class="header-section-number">24.5.4</span> Exercises</h3>
 <ol type="1">
 <li><p>Rectangle the <code>df_col</code> and <code>df_row</code> below. They represent the two ways of encoding a data frame in JSON.</p>
 <div class="cell">
@@ -991,13 +1346,12 @@ Base R
 </ol>
 </section>
 </section>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<section id="summary" class="level2" data-number="24.6">
+<h2 data-number="24.6" class="anchored" data-anchor-id="summary"><span class="header-section-number">24.6</span> Summary</h2>
 <p>In this chapter, you learned what lists are, how you can generate them from JSON files, and how to turn them into rectangular data frames. Surprisingly we only need two new functions: <code>unnest_longer()</code> to put list elements into rows and <code>unnest_wider()</code> to put list elements into columns. It doesn’t matter how deeply nested the list-column is; all you need to do is repeatedly call these two functions.</p>
 <p>JSON is the most common data format returned by web APIs. What happens if the website doesn’t have an API, but you can see data you want on the website? That’s the topic of the next chapter: web scraping, extracting data from HTML webpages.</p>
 
 
-</section>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
@@ -1099,7 +1453,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/emunkhtsetseg\.github\.io\/r4ds\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1427,7 +1781,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./arrow.html" class="pagination-link" aria-label="Arrow">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Arrow</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./webscraping.html" class="pagination-link" aria-label="Web scraping">
+        <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Web scraping</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/emunkhtsetseg/r4ds/edit/main/rectangling.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emunkhtsetseg/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
 
 
 

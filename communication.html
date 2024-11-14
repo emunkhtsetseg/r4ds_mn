@@ -8,7 +8,7 @@
 
 <meta name="author" content="Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund">
 
-<title>communication</title>
+<title>12&nbsp; Communication – R for Data Science (2e)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,11 +59,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./transform.html" rel="next">
+<link href="./EDA.html" rel="prev">
+<link href="./cover.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -72,7 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-07ba0ad10f5680c660e360ac31d2f3b6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a931f05f3074483020850101f44f8acc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4e73071aaf4ad36f30f53cb9d4ee01e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -105,29 +109,378 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="fullcontent">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./visualize.html">Visualize</a></li><li class="breadcrumb-item"><a href="./communication.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Communication</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R for Data Science (2e)</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/emunkhtsetseg/r4ds/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">тавтай морил</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./preface-2e.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface to the second edition</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./whole-game.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Whole game</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-visualize.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data visualization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workflow-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Workflow: basics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-transform.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data transformation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workflow-style.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Workflow: code style</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-tidy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data tidying</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workflow-scripts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Workflow: scripts and projects</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-import.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data import</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workflow-help.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Workflow: getting help</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./visualize.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualize</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./layers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Layers</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EDA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Exploratory data analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./communication.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Communication</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./transform.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transform</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./logicals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Logical vectors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./numbers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Numbers</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./strings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Strings</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./regexps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Regular expressions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./factors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Factors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./datetimes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Dates and times</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./missing-values.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Missing values</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./joins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Joins</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./import.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Import</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./spreadsheets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Spreadsheets</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./databases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Databases</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./arrow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Arrow</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./rectangling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Hierarchical data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./webscraping.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Web scraping</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./program.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Program</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./iteration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Iteration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./base-R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">A field guide to base R</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./communicate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Communicate</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./quarto-formats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Quarto formats</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">12.1</span> Introduction</a>
+  <ul class="collapse">
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites"><span class="header-section-number">12.1.1</span> Prerequisites</a></li>
+  </ul></li>
+  <li><a href="#labels" id="toc-labels" class="nav-link" data-scroll-target="#labels"><span class="header-section-number">12.2</span> Labels</a>
+  <ul class="collapse">
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">12.2.1</span> Exercises</a></li>
+  </ul></li>
+  <li><a href="#annotations" id="toc-annotations" class="nav-link" data-scroll-target="#annotations"><span class="header-section-number">12.3</span> Annotations</a>
+  <ul class="collapse">
+  <li><a href="#exercises-1" id="toc-exercises-1" class="nav-link" data-scroll-target="#exercises-1"><span class="header-section-number">12.3.1</span> Exercises</a></li>
+  </ul></li>
+  <li><a href="#scales" id="toc-scales" class="nav-link" data-scroll-target="#scales"><span class="header-section-number">12.4</span> Scales</a>
+  <ul class="collapse">
+  <li><a href="#default-scales" id="toc-default-scales" class="nav-link" data-scroll-target="#default-scales"><span class="header-section-number">12.4.1</span> Default scales</a></li>
+  <li><a href="#axis-ticks-and-legend-keys" id="toc-axis-ticks-and-legend-keys" class="nav-link" data-scroll-target="#axis-ticks-and-legend-keys"><span class="header-section-number">12.4.2</span> Axis ticks and legend keys</a></li>
+  <li><a href="#legend-layout" id="toc-legend-layout" class="nav-link" data-scroll-target="#legend-layout"><span class="header-section-number">12.4.3</span> Legend layout</a></li>
+  <li><a href="#replacing-a-scale" id="toc-replacing-a-scale" class="nav-link" data-scroll-target="#replacing-a-scale"><span class="header-section-number">12.4.4</span> Replacing a scale</a></li>
+  <li><a href="#zooming" id="toc-zooming" class="nav-link" data-scroll-target="#zooming"><span class="header-section-number">12.4.5</span> Zooming</a></li>
+  <li><a href="#exercises-2" id="toc-exercises-2" class="nav-link" data-scroll-target="#exercises-2"><span class="header-section-number">12.4.6</span> Exercises</a></li>
+  </ul></li>
+  <li><a href="#sec-themes" id="toc-sec-themes" class="nav-link" data-scroll-target="#sec-themes"><span class="header-section-number">12.5</span> Themes</a>
+  <ul class="collapse">
+  <li><a href="#exercises-3" id="toc-exercises-3" class="nav-link" data-scroll-target="#exercises-3"><span class="header-section-number">12.5.1</span> Exercises</a></li>
+  </ul></li>
+  <li><a href="#layout" id="toc-layout" class="nav-link" data-scroll-target="#layout"><span class="header-section-number">12.6</span> Layout</a>
+  <ul class="collapse">
+  <li><a href="#exercises-4" id="toc-exercises-4" class="nav-link" data-scroll-target="#exercises-4"><span class="header-section-number">12.6.1</span> Exercises</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">12.7</span> Summary</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/emunkhtsetseg/r4ds/edit/main/communication.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emunkhtsetseg/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./visualize.html">Visualize</a></li><li class="breadcrumb-item"><a href="./communication.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Communication</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-communication" class="quarto-section-identifier"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Communication</span></span></h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="sec-communication" class="level1">
-<h1>Communication</h1>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>In <strong>?@sec-exploratory-data-analysis</strong>, you learned how to use plots as tools for <em>exploration</em>. When you make exploratory plots, you know—even before looking—which variables the plot will display. You made each plot for a purpose, could quickly look at it, and then move on to the next plot. In the course of most analyses, you’ll produce tens or hundreds of plots, most of which are immediately thrown away.</p>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">12.1</span> Introduction</h2>
+<p>In <a href="EDA.html" class="quarto-xref"><span>Chapter 11</span></a>, you learned how to use plots as tools for <em>exploration</em>. When you make exploratory plots, you know—even before looking—which variables the plot will display. You made each plot for a purpose, could quickly look at it, and then move on to the next plot. In the course of most analyses, you’ll produce tens or hundreds of plots, most of which are immediately thrown away.</p>
 <p>Now that you understand your data, you need to <em>communicate</em> your understanding to others. Your audience will likely not share your background knowledge and will not be deeply invested in the data. To help others quickly build up a good mental model of the data, you will need to invest considerable effort in making your plots as self-explanatory as possible. In this chapter, you’ll learn some of the tools that ggplot2 provides to do so.</p>
 <p>This chapter focuses on the tools you need to create good graphics. We assume that you know what you want, and just need to know how to do it. For that reason, we highly recommend pairing this chapter with a good general visualization book. We particularly like <a href="https://www.amazon.com/gp/product/0321934075/">The Truthful Art</a>, by Albert Cairo. It doesn’t teach the mechanics of creating visualizations, but instead focuses on what you need to think about in order to create effective graphics.</p>
-<section id="prerequisites" class="level3">
-<h3 class="anchored" data-anchor-id="prerequisites">Prerequisites</h3>
+<section id="prerequisites" class="level3" data-number="12.1.1">
+<h3 data-number="12.1.1" class="anchored" data-anchor-id="prerequisites"><span class="header-section-number">12.1.1</span> Prerequisites</h3>
 <p>In this chapter, we’ll focus once again on ggplot2. We’ll also use a little dplyr for data manipulation, <strong>scales</strong> to override the default breaks, labels, transformations and palettes, and a few ggplot2 extension packages, including <strong>ggrepel</strong> (<a href="https://ggrepel.slowkow.com/">https://ggrepel.slowkow.com</a>) by Kamil Slowikowski and <strong>patchwork</strong> (<a href="https://patchwork.data-imaginist.com/">https://patchwork.data-imaginist.com</a>) by Thomas Lin Pedersen. Don’t forget that you’ll need to install those packages with <code>install.packages()</code> if you don’t already have them.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -137,8 +490,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="labels" class="level2">
-<h2 class="anchored" data-anchor-id="labels">Labels</h2>
+<section id="labels" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="labels"><span class="header-section-number">12.2</span> Labels</h2>
 <p>The easiest place to start when turning an exploratory graphic into an expository graphic is with good labels. You add labels with the <code>labs()</code> function.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
@@ -183,8 +536,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<section id="exercises" class="level3">
-<h3 class="anchored" data-anchor-id="exercises">Exercises</h3>
+<section id="exercises" class="level3" data-number="12.2.1">
+<h3 data-number="12.2.1" class="anchored" data-anchor-id="exercises"><span class="header-section-number">12.2.1</span> Exercises</h3>
 <ol type="1">
 <li><p>Create one plot on the fuel economy data with customized <code>title</code>, <code>subtitle</code>, <code>caption</code>, <code>x</code>, <code>y</code>, and <code>color</code> labels.</p></li>
 <li><p>Recreate the following plot using the fuel economy data. Note that both the colors and shapes of points vary by type of drive train.</p>
@@ -201,8 +554,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 </section>
 </section>
-<section id="annotations" class="level2">
-<h2 class="anchored" data-anchor-id="annotations">Annotations</h2>
+<section id="annotations" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="annotations"><span class="header-section-number">12.3</span> Annotations</h2>
 <p>In addition to labelling major components of your plot, it’s often useful to label individual observations or groups of observations. The first tool you have at your disposal is <code>geom_text()</code>. <code>geom_text()</code> is similar to <code>geom_point()</code>, but it has an additional aesthetic: <code>label</code>. This makes it possible to add textual labels to your plots.</p>
 <p>There are two possible sources of labels. First, you might have a tibble that provides labels. In the following plot we pull out the cars with the highest engine size in each drive type and save their information as a new data frame called <code>label_info</code>.</p>
 <div class="cell">
@@ -327,8 +680,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Annotation is a powerful tool for communicating main takeaways and interesting features of your visualizations. The only limit is your imagination (and your patience with positioning annotations to be aesthetically pleasing)!</p>
-<section id="exercises-1" class="level3">
-<h3 class="anchored" data-anchor-id="exercises-1">Exercises</h3>
+<section id="exercises-1" class="level3" data-number="12.3.1">
+<h3 data-number="12.3.1" class="anchored" data-anchor-id="exercises-1"><span class="header-section-number">12.3.1</span> Exercises</h3>
 <ol type="1">
 <li><p>Use <code>geom_text()</code> with infinite positions to place text at the four corners of the plot.</p></li>
 <li><p>Use <code>annotate()</code> to add a point geom in the middle of your last plot without having to create a tibble. Customize the shape, size, or color of the point.</p></li>
@@ -338,11 +691,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 </section>
 </section>
-<section id="scales" class="level2">
-<h2 class="anchored" data-anchor-id="scales">Scales</h2>
+<section id="scales" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="scales"><span class="header-section-number">12.4</span> Scales</h2>
 <p>The third way you can make your plot better for communication is to adjust the scales. Scales control how the aesthetic mappings manifest visually.</p>
-<section id="default-scales" class="level3">
-<h3 class="anchored" data-anchor-id="default-scales">Default scales</h3>
+<section id="default-scales" class="level3" data-number="12.4.1">
+<h3 data-number="12.4.1" class="anchored" data-anchor-id="default-scales"><span class="header-section-number">12.4.1</span> Default scales</h3>
 <p>Normally, ggplot2 automatically adds scales for you. For example, when you type:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
@@ -363,8 +716,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>You might want to replace the scale altogether, and use a completely different algorithm. Often you can do better than the default because you know more about the data.</p></li>
 </ul>
 </section>
-<section id="axis-ticks-and-legend-keys" class="level3">
-<h3 class="anchored" data-anchor-id="axis-ticks-and-legend-keys">Axis ticks and legend keys</h3>
+<section id="axis-ticks-and-legend-keys" class="level3" data-number="12.4.2">
+<h3 data-number="12.4.2" class="anchored" data-anchor-id="axis-ticks-and-legend-keys"><span class="header-section-number">12.4.2</span> Axis ticks and legend keys</h3>
 <p>Collectively axes and legends are called <strong>guides</strong>. Axes are used for x and y aesthetics; legends are used for everything else.</p>
 <p>There are two primary arguments that affect the appearance of the ticks on the axes and the keys on the legend: <code>breaks</code> and <code>labels</code>. Breaks controls the position of the ticks, or the values associated with the keys. Labels controls the text label associated with each tick/key. The most common use of <code>breaks</code> is to override the default choice:</p>
 <div class="cell">
@@ -452,8 +805,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><code>date_breaks</code> (not shown here), takes a string like “2 days” or “1 month”.</p></li>
 </ul>
 </section>
-<section id="legend-layout" class="level3">
-<h3 class="anchored" data-anchor-id="legend-layout">Legend layout</h3>
+<section id="legend-layout" class="level3" data-number="12.4.3">
+<h3 data-number="12.4.3" class="anchored" data-anchor-id="legend-layout"><span class="header-section-number">12.4.3</span> Legend layout</h3>
 <p>You will most often use <code>breaks</code> and <code>labels</code> to tweak the axes. While they both also work for legends, there are a few other techniques you are more likely to use.</p>
 <p>To control the overall position of the legend, you need to use a <code>theme()</code> setting. We’ll come back to themes at the end of the chapter, but in brief, they control the non-data parts of the plot. The theme setting <code>legend.position</code> controls where the legend is drawn:</p>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
@@ -504,8 +857,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Note that the name of the argument in <code>guides()</code> matches the name of the aesthetic, just like in <code>labs()</code>.</p>
 </section>
-<section id="replacing-a-scale" class="level3">
-<h3 class="anchored" data-anchor-id="replacing-a-scale">Replacing a scale</h3>
+<section id="replacing-a-scale" class="level3" data-number="12.4.4">
+<h3 data-number="12.4.4" class="anchored" data-anchor-id="replacing-a-scale"><span class="header-section-number">12.4.4</span> Replacing a scale</h3>
 <p>Instead of just tweaking the details a little, you can instead replace the scale altogether. There are two types of scales you’re mostly likely to want to switch out: continuous position scales and color scales. Fortunately, the same principles apply to all the other aesthetics, so once you’ve mastered position and color, you’ll be able to quickly pick up other scale replacements.</p>
 <p>It’s very useful to plot transformations of your variable. For example, it’s easier to see the precise relationship between <code>carat</code> and <code>price</code> if we log transform them:</p>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Left</span></span>
@@ -569,7 +922,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>The ColorBrewer scales are documented online at <a href="https://colorbrewer2.org/" class="uri">https://colorbrewer2.org/</a> and made available in R via the <strong>RColorBrewer</strong> package, by Erich Neuwirth. <a href="#fig-brewer" class="quarto-xref">Figure&nbsp;1</a> shows the complete list of all palettes. The sequential (top) and diverging (bottom) palettes are particularly useful if your categorical values are ordered, or have a “middle”. This often arises if you’ve used <code>cut()</code> to make a continuous variable into a categorical variable.</p>
+<p>The ColorBrewer scales are documented online at <a href="https://colorbrewer2.org/" class="uri">https://colorbrewer2.org/</a> and made available in R via the <strong>RColorBrewer</strong> package, by Erich Neuwirth. <a href="#fig-brewer" class="quarto-xref">Figure&nbsp;<span>12.1</span></a> shows the complete list of all palettes. The sequential (top) and diverging (bottom) palettes are particularly useful if your categorical values are ordered, or have a “middle”. This often arises if you’ve used <code>cut()</code> to make a continuous variable into a categorical variable.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-brewer" class="quarto-float quarto-figure quarto-figure-center anchored" alt="All colorBrewer scales. One group goes from light to dark colors. Another group is a set of non ordinal colors. And the last group has diverging scales (from dark to light to dark again). Within each set there are a number of palettes.">
@@ -578,7 +931,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <img src="communication_files/figure-html/fig-brewer-1.png" class="img-fluid figure-img" alt="All colorBrewer scales. One group goes from light to dark colors. Another group is a set of non ordinal colors. And the last group has diverging scales (from dark to light to dark again). Within each set there are a number of palettes." width="576">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-brewer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: All colorBrewer scales.
+Figure&nbsp;12.1: All colorBrewer scales.
 </figcaption>
 </figure>
 </div>
@@ -649,8 +1002,8 @@ Figure&nbsp;1: All colorBrewer scales.
 </div>
 <p>Note that all color scales come in two varieties: <code>scale_color_*()</code> and <code>scale_fill_*()</code> for the <code>color</code> and <code>fill</code> aesthetics respectively (the color scales are available in both UK and US spellings).</p>
 </section>
-<section id="zooming" class="level3">
-<h3 class="anchored" data-anchor-id="zooming">Zooming</h3>
+<section id="zooming" class="level3" data-number="12.4.5">
+<h3 data-number="12.4.5" class="anchored" data-anchor-id="zooming"><span class="header-section-number">12.4.5</span> Zooming</h3>
 <p>There are three ways to control the plot limits:</p>
 <ol type="1">
 <li>Adjusting what data are plotted.</li>
@@ -753,8 +1106,8 @@ Figure&nbsp;1: All colorBrewer scales.
 </div>
 <p>In this particular case, you could have simply used faceting, but this technique is useful more generally, if for instance, you want to spread plots over multiple pages of a report.</p>
 </section>
-<section id="exercises-2" class="level3">
-<h3 class="anchored" data-anchor-id="exercises-2">Exercises</h3>
+<section id="exercises-2" class="level3" data-number="12.4.6">
+<h3 data-number="12.4.6" class="anchored" data-anchor-id="exercises-2"><span class="header-section-number">12.4.6</span> Exercises</h3>
 <ol type="1">
 <li><p>Why doesn’t the following code override the default scale?</p>
 <div class="cell">
@@ -788,8 +1141,8 @@ Figure&nbsp;1: All colorBrewer scales.
 </ol>
 </section>
 </section>
-<section id="sec-themes" class="level2">
-<h2 class="anchored" data-anchor-id="sec-themes">Themes</h2>
+<section id="sec-themes" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="sec-themes"><span class="header-section-number">12.5</span> Themes</h2>
 <p>Finally, you can customize the non-data elements of your plot with a theme:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
@@ -804,7 +1157,7 @@ Figure&nbsp;1: All colorBrewer scales.
 </div>
 </div>
 </div>
-<p>ggplot2 includes the eight themes shown in <a href="#fig-themes" class="quarto-xref">Figure&nbsp;2</a>, with <code>theme_gray()</code> as the default.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Many more are included in add-on packages like <strong>ggthemes</strong> (<a href="https://jrnold.github.io/ggthemes" class="uri">https://jrnold.github.io/ggthemes</a>), by Jeffrey Arnold. You can also create your own themes, if you are trying to match a particular corporate or journal style.</p>
+<p>ggplot2 includes the eight themes shown in <a href="#fig-themes" class="quarto-xref">Figure&nbsp;<span>12.2</span></a>, with <code>theme_gray()</code> as the default.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Many more are included in add-on packages like <strong>ggthemes</strong> (<a href="https://jrnold.github.io/ggthemes" class="uri">https://jrnold.github.io/ggthemes</a>), by Jeffrey Arnold. You can also create your own themes, if you are trying to match a particular corporate or journal style.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-themes" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Eight barplots created with ggplot2, each with one of the eight built-in themes: theme_bw() - White background with grid lines, theme_light() - Light axes and grid lines, theme_classic() - Classic theme, axes but no grid lines, theme_linedraw() - Only black lines, theme_dark() - Dark background for contrast, theme_minimal() - Minimal theme, no background, theme_gray() - Gray background (default theme), theme_void() - Empty theme, only geoms are visible.">
@@ -813,7 +1166,7 @@ Figure&nbsp;1: All colorBrewer scales.
 <img src="images/visualization-themes.png" class="img-fluid figure-img" alt="Eight barplots created with ggplot2, each with one of the eight built-in themes: theme_bw() - White background with grid lines, theme_light() - Light axes and grid lines, theme_classic() - Classic theme, axes but no grid lines, theme_linedraw() - Only black lines, theme_dark() - Dark background for contrast, theme_minimal() - Minimal theme, no background, theme_gray() - Gray background (default theme), theme_void() - Empty theme, only geoms are visible." width="1600">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-themes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: The eight themes built-in to ggplot2.
+Figure&nbsp;12.2: The eight themes built-in to ggplot2.
 </figcaption>
 </figure>
 </div>
@@ -848,16 +1201,16 @@ Figure&nbsp;2: The eight themes built-in to ggplot2.
 </div>
 </div>
 <p>For an overview of all <code>theme()</code> components, see help with <code>?theme</code>. The <a href="https://ggplot2-book.org/">ggplot2 book</a> is also a great place to go for the full details on theming.</p>
-<section id="exercises-3" class="level3">
-<h3 class="anchored" data-anchor-id="exercises-3">Exercises</h3>
+<section id="exercises-3" class="level3" data-number="12.5.1">
+<h3 data-number="12.5.1" class="anchored" data-anchor-id="exercises-3"><span class="header-section-number">12.5.1</span> Exercises</h3>
 <ol type="1">
 <li>Pick a theme offered by the ggthemes package and apply it to the last plot you made.</li>
 <li>Make the axis labels of your plot blue and bolded.</li>
 </ol>
 </section>
 </section>
-<section id="layout" class="level2">
-<h2 class="anchored" data-anchor-id="layout">Layout</h2>
+<section id="layout" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="layout"><span class="header-section-number">12.6</span> Layout</h2>
 <p>So far we talked about how to create and modify a single plot. What if you have multiple plots you want to lay out in a certain way? The patchwork package allows you to combine separate plots into the same graphic. We loaded this package earlier in the chapter.</p>
 <p>To place two plots next to each other, you can simply add them to each other. Note that you first need to create the plots and save them as objects (in the following example they’re called <code>p1</code> and <code>p2</code>). Then, you place them next to each other with <code>+</code>.</p>
 <div class="cell">
@@ -933,8 +1286,8 @@ Figure&nbsp;2: The eight themes built-in to ggplot2.
 </div>
 </div>
 <p>If you’d like to learn more about combining and layout out multiple plots with patchwork, we recommend looking through the guides on the package website: <a href="https://patchwork.data-imaginist.com" class="uri">https://patchwork.data-imaginist.com</a>.</p>
-<section id="exercises-4" class="level3">
-<h3 class="anchored" data-anchor-id="exercises-4">Exercises</h3>
+<section id="exercises-4" class="level3" data-number="12.6.1">
+<h3 data-number="12.6.1" class="anchored" data-anchor-id="exercises-4"><span class="header-section-number">12.6.1</span> Exercises</h3>
 <ol type="1">
 <li><p>What happens if you omit the parentheses in the following plot layout. Can you explain why this happens?</p>
 <div class="cell">
@@ -963,13 +1316,12 @@ Figure&nbsp;2: The eight themes built-in to ggplot2.
 </ol>
 </section>
 </section>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<section id="summary" class="level2" data-number="12.7">
+<h2 data-number="12.7" class="anchored" data-anchor-id="summary"><span class="header-section-number">12.7</span> Summary</h2>
 <p>In this chapter you’ve learned about adding plot labels such as title, subtitle, caption as well as modifying default axis labels, using annotation to add informational text to your plot or to highlight specific data points, customizing the axis scales, and changing the theme of your plot. You’ve also learned about combining multiple plots in a single graph using both simple and complex plot layouts.</p>
 <p>While you’ve so far learned about how to make many different types of plots and how to customize them using a variety of techniques, we’ve barely scratched the surface of what you can create with ggplot2. If you want to get a comprehensive understanding of ggplot2, we recommend reading the book, <a href="https://ggplot2-book.org"><em>ggplot2: Elegant Graphics for Data Analysis</em></a>. Other useful resources are the <a href="https://r-graphics.org"><em>R Graphics Cookbook</em></a> by Winston Chang and <a href="https://clauswilke.com/dataviz/"><em>Fundamentals of Data Visualization</em></a> by Claus Wilke.</p>
 
 
-</section>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
@@ -1072,7 +1424,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/emunkhtsetseg\.github\.io\/r4ds\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1400,7 +1752,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./EDA.html" class="pagination-link" aria-label="Exploratory data analysis">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Exploratory data analysis</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./transform.html" class="pagination-link" aria-label="Transform">
+        <span class="nav-page-text">Transform</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/emunkhtsetseg/r4ds/edit/main/communication.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emunkhtsetseg/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
 
 
 

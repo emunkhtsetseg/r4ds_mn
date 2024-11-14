@@ -8,7 +8,7 @@
 
 <meta name="author" content="Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund">
 
-<title>logicals</title>
+<title>13&nbsp; Logical vectors – R for Data Science (2e)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,11 +59,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./numbers.html" rel="next">
+<link href="./transform.html" rel="prev">
+<link href="./cover.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -72,7 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-07ba0ad10f5680c660e360ac31d2f3b6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a931f05f3074483020850101f44f8acc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4e73071aaf4ad36f30f53cb9d4ee01e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -105,28 +109,380 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="fullcontent">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./transform.html">Transform</a></li><li class="breadcrumb-item"><a href="./logicals.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Logical vectors</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R for Data Science (2e)</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/emunkhtsetseg/r4ds/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">тавтай морил</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./preface-2e.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface to the second edition</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./whole-game.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Whole game</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-visualize.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data visualization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workflow-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Workflow: basics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-transform.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data transformation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workflow-style.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Workflow: code style</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-tidy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data tidying</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workflow-scripts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Workflow: scripts and projects</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-import.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data import</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workflow-help.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Workflow: getting help</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./visualize.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualize</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./layers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Layers</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EDA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Exploratory data analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./communication.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Communication</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./transform.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transform</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./logicals.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Logical vectors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./numbers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Numbers</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./strings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Strings</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./regexps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Regular expressions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./factors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Factors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./datetimes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Dates and times</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./missing-values.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Missing values</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./joins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Joins</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./import.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Import</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./spreadsheets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Spreadsheets</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./databases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Databases</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./arrow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Arrow</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./rectangling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Hierarchical data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./webscraping.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Web scraping</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./program.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Program</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./iteration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Iteration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./base-R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">A field guide to base R</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./communicate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Communicate</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./quarto-formats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Quarto formats</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">13.1</span> Introduction</a>
+  <ul class="collapse">
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites"><span class="header-section-number">13.1.1</span> Prerequisites</a></li>
+  </ul></li>
+  <li><a href="#comparisons" id="toc-comparisons" class="nav-link" data-scroll-target="#comparisons"><span class="header-section-number">13.2</span> Comparisons</a>
+  <ul class="collapse">
+  <li><a href="#sec-fp-comparison" id="toc-sec-fp-comparison" class="nav-link" data-scroll-target="#sec-fp-comparison"><span class="header-section-number">13.2.1</span> Floating point comparison</a></li>
+  <li><a href="#sec-na-comparison" id="toc-sec-na-comparison" class="nav-link" data-scroll-target="#sec-na-comparison"><span class="header-section-number">13.2.2</span> Missing values</a></li>
+  <li><a href="#is.na" id="toc-is.na" class="nav-link" data-scroll-target="#is.na"><span class="header-section-number">13.2.3</span> <code>is.na()</code></a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">13.2.4</span> Exercises</a></li>
+  </ul></li>
+  <li><a href="#boolean-algebra" id="toc-boolean-algebra" class="nav-link" data-scroll-target="#boolean-algebra"><span class="header-section-number">13.3</span> Boolean algebra</a>
+  <ul class="collapse">
+  <li><a href="#sec-na-boolean" id="toc-sec-na-boolean" class="nav-link" data-scroll-target="#sec-na-boolean"><span class="header-section-number">13.3.1</span> Missing values</a></li>
+  <li><a href="#sec-order-operations-boolean" id="toc-sec-order-operations-boolean" class="nav-link" data-scroll-target="#sec-order-operations-boolean"><span class="header-section-number">13.3.2</span> Order of operations</a></li>
+  <li><a href="#in" id="toc-in" class="nav-link" data-scroll-target="#in"><span class="header-section-number">13.3.3</span> <code>%in%</code></a></li>
+  <li><a href="#exercises-1" id="toc-exercises-1" class="nav-link" data-scroll-target="#exercises-1"><span class="header-section-number">13.3.4</span> Exercises</a></li>
+  </ul></li>
+  <li><a href="#sec-logical-summaries" id="toc-sec-logical-summaries" class="nav-link" data-scroll-target="#sec-logical-summaries"><span class="header-section-number">13.4</span> Summaries</a>
+  <ul class="collapse">
+  <li><a href="#logical-summaries" id="toc-logical-summaries" class="nav-link" data-scroll-target="#logical-summaries"><span class="header-section-number">13.4.1</span> Logical summaries</a></li>
+  <li><a href="#sec-numeric-summaries-of-logicals" id="toc-sec-numeric-summaries-of-logicals" class="nav-link" data-scroll-target="#sec-numeric-summaries-of-logicals"><span class="header-section-number">13.4.2</span> Numeric summaries of logical vectors</a></li>
+  <li><a href="#logical-subsetting" id="toc-logical-subsetting" class="nav-link" data-scroll-target="#logical-subsetting"><span class="header-section-number">13.4.3</span> Logical subsetting</a></li>
+  <li><a href="#exercises-2" id="toc-exercises-2" class="nav-link" data-scroll-target="#exercises-2"><span class="header-section-number">13.4.4</span> Exercises</a></li>
+  </ul></li>
+  <li><a href="#conditional-transformations" id="toc-conditional-transformations" class="nav-link" data-scroll-target="#conditional-transformations"><span class="header-section-number">13.5</span> Conditional transformations</a>
+  <ul class="collapse">
+  <li><a href="#if_else" id="toc-if_else" class="nav-link" data-scroll-target="#if_else"><span class="header-section-number">13.5.1</span> <code>if_else()</code></a></li>
+  <li><a href="#case_when" id="toc-case_when" class="nav-link" data-scroll-target="#case_when"><span class="header-section-number">13.5.2</span> <code>case_when()</code></a></li>
+  <li><a href="#compatible-types" id="toc-compatible-types" class="nav-link" data-scroll-target="#compatible-types"><span class="header-section-number">13.5.3</span> Compatible types</a></li>
+  <li><a href="#exercises-3" id="toc-exercises-3" class="nav-link" data-scroll-target="#exercises-3"><span class="header-section-number">13.5.4</span> Exercises</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">13.6</span> Summary</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/emunkhtsetseg/r4ds/edit/main/logicals.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emunkhtsetseg/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./transform.html">Transform</a></li><li class="breadcrumb-item"><a href="./logicals.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Logical vectors</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-logicals" class="quarto-section-identifier"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Logical vectors</span></span></h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="sec-logicals" class="level1">
-<h1>Logical vectors</h1>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">13.1</span> Introduction</h2>
 <p>In this chapter, you’ll learn tools for working with logical vectors. Logical vectors are the simplest type of vector because each element can only be one of three possible values: <code>TRUE</code>, <code>FALSE</code>, and <code>NA</code>. It’s relatively rare to find logical vectors in your raw data, but you’ll create and manipulate them in the course of almost every analysis.</p>
 <p>We’ll begin by discussing the most common way of creating logical vectors: with numeric comparisons. Then you’ll learn about how you can use Boolean algebra to combine different logical vectors, as well as some useful summaries. We’ll finish off with <code>if_else()</code> and <code>case_when()</code>, two useful functions for making conditional changes powered by logical vectors.</p>
-<section id="prerequisites" class="level3">
-<h3 class="anchored" data-anchor-id="prerequisites">Prerequisites</h3>
+<section id="prerequisites" class="level3" data-number="13.1.1">
+<h3 data-number="13.1.1" class="anchored" data-anchor-id="prerequisites"><span class="header-section-number">13.1.1</span> Prerequisites</h3>
 <p>Most of the functions you’ll learn about in this chapter are provided by base R, so we don’t need the tidyverse, but we’ll still load it so we can use <code>mutate()</code>, <code>filter()</code>, and friends to work with data frames. We’ll also continue to draw examples from the <code>nycflights13::flights</code> dataset.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -156,8 +512,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="comparisons" class="level2">
-<h2 class="anchored" data-anchor-id="comparisons">Comparisons</h2>
+<section id="comparisons" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="comparisons"><span class="header-section-number">13.2</span> Comparisons</h2>
 <p>A very common way to create a logical vector is via a numeric comparison with <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>!=</code>, and <code>==</code>. So far, we’ve mostly created logical variables transiently within <code>filter()</code> — they are computed, used, and then thrown away. For example, the following filter finds all daytime departures that arrive roughly on time:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> </span>
@@ -203,8 +559,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(daytime <span class="sc">&amp;</span> approx_ontime)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="sec-fp-comparison" class="level3">
-<h3 class="anchored" data-anchor-id="sec-fp-comparison">Floating point comparison</h3>
+<section id="sec-fp-comparison" class="level3" data-number="13.2.1">
+<h3 data-number="13.2.1" class="anchored" data-anchor-id="sec-fp-comparison"><span class="header-section-number">13.2.1</span> Floating point comparison</h3>
 <p>Beware of using <code>==</code> with numbers. For example, it looks like this vector contains the numbers 1 and 2:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span> <span class="sc">/</span> <span class="dv">49</span> <span class="sc">*</span> <span class="dv">49</span>, <span class="fu">sqrt</span>(<span class="dv">2</span>) <span class="sc">^</span> <span class="dv">2</span>)</span>
@@ -228,8 +584,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] TRUE TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="sec-na-comparison" class="level3">
-<h3 class="anchored" data-anchor-id="sec-na-comparison">Missing values</h3>
+<section id="sec-na-comparison" class="level3" data-number="13.2.2">
+<h3 data-number="13.2.2" class="anchored" data-anchor-id="sec-na-comparison"><span class="header-section-number">13.2.2</span> Missing values</h3>
 <p>Missing values represent the unknown so they are “contagious”: almost any operation involving an unknown value will also be unknown:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">&gt;</span> <span class="dv">5</span></span>
@@ -265,8 +621,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Instead we’ll need a new tool: <code>is.na()</code>.</p>
 </section>
-<section id="is.na" class="level3">
-<h3 class="anchored" data-anchor-id="is.na"><code>is.na()</code></h3>
+<section id="is.na" class="level3" data-number="13.2.3">
+<h3 data-number="13.2.3" class="anchored" data-anchor-id="is.na"><span class="header-section-number">13.2.3</span> <code>is.na()</code></h3>
 <p><code>is.na(x)</code> works with any type of vector and returns <code>TRUE</code> for missing values and <code>FALSE</code> for everything else:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">NA</span>, <span class="cn">FALSE</span>))</span>
@@ -324,19 +680,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 836 more rows</span></span>
 <span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, …</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We’ll come back to cover missing values in more depth in <strong>?@sec-missing-values</strong>.</p>
+<p>We’ll come back to cover missing values in more depth in <a href="missing-values.html" class="quarto-xref"><span>Chapter 19</span></a>.</p>
 </section>
-<section id="exercises" class="level3">
-<h3 class="anchored" data-anchor-id="exercises">Exercises</h3>
+<section id="exercises" class="level3" data-number="13.2.4">
+<h3 data-number="13.2.4" class="anchored" data-anchor-id="exercises"><span class="header-section-number">13.2.4</span> Exercises</h3>
 <ol type="1">
 <li>How does <code>dplyr::near()</code> work? Type <code>near</code> to see the source code. Is <code>sqrt(2)^2</code> near 2?</li>
 <li>Use <code>mutate()</code>, <code>is.na()</code>, and <code>count()</code> together to describe how the missing values in <code>dep_time</code>, <code>sched_dep_time</code> and <code>dep_delay</code> are connected.</li>
 </ol>
 </section>
 </section>
-<section id="boolean-algebra" class="level2">
-<h2 class="anchored" data-anchor-id="boolean-algebra">Boolean algebra</h2>
-<p>Once you have multiple logical vectors, you can combine them together using Boolean algebra. In R, <code>&amp;</code> is “and”, <code>|</code> is “or”, <code>!</code> is “not”, and <code>xor()</code> is exclusive or<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. For example, <code>df |&gt; filter(!is.na(x))</code> finds all rows where <code>x</code> is not missing and <code>df |&gt; filter(x &lt; -10 | x &gt; 0)</code> finds all rows where <code>x</code> is smaller than -10 or bigger than 0. <a href="#fig-bool-ops" class="quarto-xref">Figure&nbsp;1</a> shows the complete set of Boolean operations and how they work.</p>
+<section id="boolean-algebra" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="boolean-algebra"><span class="header-section-number">13.3</span> Boolean algebra</h2>
+<p>Once you have multiple logical vectors, you can combine them together using Boolean algebra. In R, <code>&amp;</code> is “and”, <code>|</code> is “or”, <code>!</code> is “not”, and <code>xor()</code> is exclusive or<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. For example, <code>df |&gt; filter(!is.na(x))</code> finds all rows where <code>x</code> is not missing and <code>df |&gt; filter(x &lt; -10 | x &gt; 0)</code> finds all rows where <code>x</code> is smaller than -10 or bigger than 0. <a href="#fig-bool-ops" class="quarto-xref">Figure&nbsp;<span>13.1</span></a> shows the complete set of Boolean operations and how they work.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-bool-ops" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Seven Venn diagrams, each explaining a given logical operator. The circles (sets) in each of the Venn diagrams represent x and y. x &amp; !y is x but none of y; x &amp; y is the intersection of x and y; !x &amp; y is y but none of x; x is all of x; xor(x, y) is everything except the intersection of x and y; y is all of y; and x | y is everything.">
@@ -345,15 +701,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <img src="diagrams/transform.png" class="img-fluid figure-img" alt="Seven Venn diagrams, each explaining a given logical operator. The circles (sets) in each of the Venn diagrams represent x and y. x &amp; !y is x but none of y; x &amp; y is the intersection of x and y; !x &amp; y is y but none of x; x is all of x; xor(x, y) is everything except the intersection of x and y; y is all of y; and x | y is everything." width="395">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bool-ops-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: The complete set of Boolean operations. <code>x</code> is the left-hand circle, <code>y</code> is the right-hand circle, and the shaded regions show which parts each operator selects.
+Figure&nbsp;13.1: The complete set of Boolean operations. <code>x</code> is the left-hand circle, <code>y</code> is the right-hand circle, and the shaded regions show which parts each operator selects.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>As well as <code>&amp;</code> and <code>|</code>, R also has <code>&amp;&amp;</code> and <code>||</code>. Don’t use them in dplyr functions! These are called short-circuiting operators and only ever return a single <code>TRUE</code> or <code>FALSE</code>. They’re important for programming, not data science.</p>
-<section id="sec-na-boolean" class="level3">
-<h3 class="anchored" data-anchor-id="sec-na-boolean">Missing values</h3>
+<section id="sec-na-boolean" class="level3" data-number="13.3.1">
+<h3 data-number="13.3.1" class="anchored" data-anchor-id="sec-na-boolean"><span class="header-section-number">13.3.1</span> Missing values</h3>
 <p>The rules for missing values in Boolean algebra are a little tricky to explain because they seem inconsistent at first glance:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">NA</span>))</span>
@@ -372,8 +728,8 @@ Figure&nbsp;1: The complete set of Boolean operations. <code>x</code> is the lef
 </div>
 <p>To understand what’s going on, think about <code>NA | TRUE</code> (<code>NA</code> or <code>TRUE</code>). A missing value in a logical vector means that the value could either be <code>TRUE</code> or <code>FALSE</code>. <code>TRUE | TRUE</code> and <code>FALSE | TRUE</code> are both <code>TRUE</code> because at least one of them is <code>TRUE</code>. <code>NA | TRUE</code> must also be <code>TRUE</code> because <code>NA</code> can either be <code>TRUE</code> or <code>FALSE</code>. However, <code>NA | FALSE</code> is <code>NA</code> because we don’t know if <code>NA</code> is <code>TRUE</code> or <code>FALSE</code>. Similar reasoning applies with <code>NA &amp; FALSE</code>.</p>
 </section>
-<section id="sec-order-operations-boolean" class="level3">
-<h3 class="anchored" data-anchor-id="sec-order-operations-boolean">Order of operations</h3>
+<section id="sec-order-operations-boolean" class="level3" data-number="13.3.2">
+<h3 data-number="13.3.2" class="anchored" data-anchor-id="sec-order-operations-boolean"><span class="header-section-number">13.3.2</span> Order of operations</h3>
 <p>Note that the order of operations doesn’t work like English. Take the following code that finds all flights that departed in November or December:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> </span>
@@ -415,8 +771,8 @@ Figure&nbsp;1: The complete set of Boolean operations. <code>x</code> is the lef
 <span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 336,770 more rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="in" class="level3">
-<h3 class="anchored" data-anchor-id="in"><code>%in%</code></h3>
+<section id="in" class="level3" data-number="13.3.3">
+<h3 data-number="13.3.3" class="anchored" data-anchor-id="in"><span class="header-section-number">13.3.3</span> <code>%in%</code></h3>
 <p>An easy way to avoid the problem of getting your <code>==</code>s and <code>|</code>s in the right order is to use <code>%in%</code>. <code>x %in% y</code> returns a logical vector the same length as <code>x</code> that is <code>TRUE</code> whenever a value in <code>x</code> is anywhere in <code>y</code> .</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">12</span> <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">11</span>)</span>
@@ -453,8 +809,8 @@ Figure&nbsp;1: The complete set of Boolean operations. <code>x</code> is the lef
 <span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, …</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercises-1" class="level3">
-<h3 class="anchored" data-anchor-id="exercises-1">Exercises</h3>
+<section id="exercises-1" class="level3" data-number="13.3.4">
+<h3 data-number="13.3.4" class="anchored" data-anchor-id="exercises-1"><span class="header-section-number">13.3.4</span> Exercises</h3>
 <ol type="1">
 <li>Find all flights where <code>arr_delay</code> is missing but <code>dep_delay</code> is not. Find all flights where neither <code>arr_time</code> nor <code>sched_arr_time</code> are missing, but <code>arr_delay</code> is.</li>
 <li>How many flights have a missing <code>dep_time</code>? What other variables are missing in these rows? What might these rows represent?</li>
@@ -462,11 +818,11 @@ Figure&nbsp;1: The complete set of Boolean operations. <code>x</code> is the lef
 </ol>
 </section>
 </section>
-<section id="sec-logical-summaries" class="level2">
-<h2 class="anchored" data-anchor-id="sec-logical-summaries">Summaries</h2>
+<section id="sec-logical-summaries" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="sec-logical-summaries"><span class="header-section-number">13.4</span> Summaries</h2>
 <p>The following sections describe some useful techniques for summarizing logical vectors. As well as functions that only work specifically with logical vectors, you can also use functions that work with numeric vectors.</p>
-<section id="logical-summaries" class="level3">
-<h3 class="anchored" data-anchor-id="logical-summaries">Logical summaries</h3>
+<section id="logical-summaries" class="level3" data-number="13.4.1">
+<h3 data-number="13.4.1" class="anchored" data-anchor-id="logical-summaries"><span class="header-section-number">13.4.1</span> Logical summaries</h3>
 <p>There are two main logical summaries: <code>any()</code> and <code>all()</code>. <code>any(x)</code> is the equivalent of <code>|</code>; it’ll return <code>TRUE</code> if there are any <code>TRUE</code>’s in <code>x</code>. <code>all(x)</code> is equivalent of <code>&amp;</code>; it’ll return <code>TRUE</code> only if all values of <code>x</code> are <code>TRUE</code>’s. Like all summary functions, they’ll return <code>NA</code> if there are any missing values present, and as usual you can make the missing values go away with <code>na.rm = TRUE</code>.</p>
 <p>For example, we could use <code>all()</code> and <code>any()</code> to find out if every flight was delayed on departure by at most an hour or if any flights were delayed on arrival by five hours or more. And using <code>group_by()</code> allows us to do that by day:</p>
 <div class="cell">
@@ -490,8 +846,8 @@ Figure&nbsp;1: The complete set of Boolean operations. <code>x</code> is the lef
 </div>
 <p>In most cases, however, <code>any()</code> and <code>all()</code> are a little too crude, and it would be nice to be able to get a little more detail about how many values are <code>TRUE</code> or <code>FALSE</code>. That leads us to the numeric summaries.</p>
 </section>
-<section id="sec-numeric-summaries-of-logicals" class="level3">
-<h3 class="anchored" data-anchor-id="sec-numeric-summaries-of-logicals">Numeric summaries of logical vectors</h3>
+<section id="sec-numeric-summaries-of-logicals" class="level3" data-number="13.4.2">
+<h3 data-number="13.4.2" class="anchored" data-anchor-id="sec-numeric-summaries-of-logicals"><span class="header-section-number">13.4.2</span> Numeric summaries of logical vectors</h3>
 <p>When you use a logical vector in a numeric context, <code>TRUE</code> becomes 1 and <code>FALSE</code> becomes 0. This makes <code>sum()</code> and <code>mean()</code> very useful with logical vectors because <code>sum(x)</code> gives the number of <code>TRUE</code>s and <code>mean(x)</code> gives the proportion of <code>TRUE</code>s (because <code>mean()</code> is just <code>sum()</code> divided by <code>length()</code>).</p>
 <p>That, for example, allows us to see the proportion of flights that were delayed on departure by at most an hour and the number of flights that were delayed on arrival by five hours or more:</p>
 <div class="cell">
@@ -514,9 +870,9 @@ Figure&nbsp;1: The complete set of Boolean operations. <code>x</code> is the lef
 <span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 359 more rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="logical-subsetting" class="level3">
-<h3 class="anchored" data-anchor-id="logical-subsetting">Logical subsetting</h3>
-<p>There’s one final use for logical vectors in summaries: you can use a logical vector to filter a single variable to a subset of interest. This makes use of the base <code>[</code> (pronounced subset) operator, which you’ll learn more about in <strong>?@sec-subset-many</strong>.</p>
+<section id="logical-subsetting" class="level3" data-number="13.4.3">
+<h3 data-number="13.4.3" class="anchored" data-anchor-id="logical-subsetting"><span class="header-section-number">13.4.3</span> Logical subsetting</h3>
+<p>There’s one final use for logical vectors in summaries: you can use a logical vector to filter a single variable to a subset of interest. This makes use of the base <code>[</code> (pronounced subset) operator, which you’ll learn more about in <a href="base-R.html#sec-subset-many" class="quarto-xref"><span>Section 28.2</span></a>.</p>
 <p>Imagine we wanted to look at the average delay just for flights that were actually delayed. One way to do so would be to first filter the flights and then calculate the average delay:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> </span>
@@ -562,19 +918,19 @@ Figure&nbsp;1: The complete set of Boolean operations. <code>x</code> is the lef
 </div>
 <p>Also note the difference in the group size: in the first chunk <code>n()</code> gives the number of delayed flights per day; in the second, <code>n()</code> gives the total number of flights.</p>
 </section>
-<section id="exercises-2" class="level3">
-<h3 class="anchored" data-anchor-id="exercises-2">Exercises</h3>
+<section id="exercises-2" class="level3" data-number="13.4.4">
+<h3 data-number="13.4.4" class="anchored" data-anchor-id="exercises-2"><span class="header-section-number">13.4.4</span> Exercises</h3>
 <ol type="1">
 <li>What will <code>sum(is.na(x))</code> tell you? How about <code>mean(is.na(x))</code>?</li>
 <li>What does <code>prod()</code> return when applied to a logical vector? What logical summary function is it equivalent to? What does <code>min()</code> return when applied to a logical vector? What logical summary function is it equivalent to? Read the documentation and perform a few experiments.</li>
 </ol>
 </section>
 </section>
-<section id="conditional-transformations" class="level2">
-<h2 class="anchored" data-anchor-id="conditional-transformations">Conditional transformations</h2>
+<section id="conditional-transformations" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="conditional-transformations"><span class="header-section-number">13.5</span> Conditional transformations</h2>
 <p>One of the most powerful features of logical vectors are their use for conditional transformations, i.e.&nbsp;doing one thing for condition x, and something different for condition y. There are two important tools for this: <code>if_else()</code> and <code>case_when()</code>.</p>
-<section id="if_else" class="level3">
-<h3 class="anchored" data-anchor-id="if_else"><code>if_else()</code></h3>
+<section id="if_else" class="level3" data-number="13.5.1">
+<h3 data-number="13.5.1" class="anchored" data-anchor-id="if_else"><span class="header-section-number">13.5.1</span> <code>if_else()</code></h3>
 <p>If you want to use one value when a condition is <code>TRUE</code> and another value when it’s <code>FALSE</code>, you can use <code>dplyr::if_else()</code><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. You’ll always use the first three argument of <code>if_else()</code>. The first argument, <code>condition</code>, is a logical vector, the second, <code>true</code>, gives the output when the condition is true, and the third, <code>false</code>, gives the output if the condition is false.</p>
 <p>Let’s begin with a simple example of labeling a numeric vector as either “+ve” (positive) or “-ve” (negative):</p>
 <div class="cell">
@@ -606,8 +962,8 @@ Figure&nbsp;1: The complete set of Boolean operations. <code>x</code> is the lef
 </div>
 <p>This is already a little hard to read, and you can imagine it would only get harder if you have more conditions. Instead, you can switch to <code>dplyr::case_when()</code>.</p>
 </section>
-<section id="case_when" class="level3">
-<h3 class="anchored" data-anchor-id="case_when"><code>case_when()</code></h3>
+<section id="case_when" class="level3" data-number="13.5.2">
+<h3 data-number="13.5.2" class="anchored" data-anchor-id="case_when"><span class="header-section-number">13.5.2</span> <code>case_when()</code></h3>
 <p>dplyr’s <code>case_when()</code> is inspired by SQL’s <code>CASE</code> statement and provides a flexible way of performing different computations for different conditions. It has a special syntax that unfortunately looks like nothing else you’ll use in the tidyverse. It takes pairs that look like <code>condition ~ output</code>. <code>condition</code> must be a logical vector; when it’s <code>TRUE</code>, <code>output</code> will be used.</p>
 <p>This means we could recreate our previous nested <code>if_else()</code> as follows:</p>
 <div class="cell">
@@ -673,8 +1029,8 @@ Figure&nbsp;1: The complete set of Boolean operations. <code>x</code> is the lef
 </div>
 <p>Be wary when writing this sort of complex <code>case_when()</code> statement; my first two attempts used a mix of <code>&lt;</code> and <code>&gt;</code> and I kept accidentally creating overlapping conditions.</p>
 </section>
-<section id="compatible-types" class="level3">
-<h3 class="anchored" data-anchor-id="compatible-types">Compatible types</h3>
+<section id="compatible-types" class="level3" data-number="13.5.3">
+<h3 data-number="13.5.3" class="anchored" data-anchor-id="compatible-types"><span class="header-section-number">13.5.3</span> Compatible types</h3>
 <p>Note that both <code>if_else()</code> and <code>case_when()</code> require <strong>compatible</strong> types in the output. If they’re not compatible, you’ll see errors like this:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">if_else</span>(<span class="cn">TRUE</span>, <span class="st">"a"</span>, <span class="dv">1</span>)</span>
@@ -690,15 +1046,15 @@ Figure&nbsp;1: The complete set of Boolean operations. <code>x</code> is the lef
 </div>
 <p>Overall, relatively few types are compatible, because automatically converting one type of vector to another is a common source of errors. Here are the most important cases that are compatible:</p>
 <ul>
-<li>Numeric and logical vectors are compatible, as we discussed in <a href="#sec-numeric-summaries-of-logicals" class="quarto-xref">Section&nbsp;1.4.2</a>.</li>
-<li>Strings and factors (<strong>?@sec-factors</strong>) are compatible, because you can think of a factor as a string with a restricted set of values.</li>
-<li>Dates and date-times, which we’ll discuss in <strong>?@sec-dates-and-times</strong>, are compatible because you can think of a date as a special case of date-time.</li>
+<li>Numeric and logical vectors are compatible, as we discussed in <a href="#sec-numeric-summaries-of-logicals" class="quarto-xref"><span>Section 13.4.2</span></a>.</li>
+<li>Strings and factors (<a href="factors.html" class="quarto-xref"><span>Chapter 17</span></a>) are compatible, because you can think of a factor as a string with a restricted set of values.</li>
+<li>Dates and date-times, which we’ll discuss in <a href="datetimes.html" class="quarto-xref"><span>Chapter 18</span></a>, are compatible because you can think of a date as a special case of date-time.</li>
 <li><code>NA</code>, which is technically a logical vector, is compatible with everything because every vector has some way of representing a missing value.</li>
 </ul>
 <p>We don’t expect you to memorize these rules, but they should become second nature over time because they are applied consistently throughout the tidyverse.</p>
 </section>
-<section id="exercises-3" class="level3">
-<h3 class="anchored" data-anchor-id="exercises-3">Exercises</h3>
+<section id="exercises-3" class="level3" data-number="13.5.4">
+<h3 data-number="13.5.4" class="anchored" data-anchor-id="exercises-3"><span class="header-section-number">13.5.4</span> Exercises</h3>
 <ol type="1">
 <li><p>A number is even if it’s divisible by two, which in R you can find out with <code>x %% 2 == 0</code>. Use this fact and <code>if_else()</code> to determine whether each number between 0 and 20 is even or odd.</p></li>
 <li><p>Given a vector of days like <code>x &lt;- c("Monday", "Saturday", "Wednesday")</code>, use an <code>if_else()</code> statement to label them as weekends or weekdays.</p></li>
@@ -707,20 +1063,19 @@ Figure&nbsp;1: The complete set of Boolean operations. <code>x</code> is the lef
 </ol>
 </section>
 </section>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<section id="summary" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="summary"><span class="header-section-number">13.6</span> Summary</h2>
 <p>The definition of a logical vector is simple because each value must be either <code>TRUE</code>, <code>FALSE</code>, or <code>NA</code>. But logical vectors provide a huge amount of power. In this chapter, you learned how to create logical vectors with <code>&gt;</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>==</code>, <code>!=</code>, and <code>is.na()</code>, how to combine them with <code>!</code>, <code>&amp;</code>, and <code>|</code>, and how to summarize them with <code>any()</code>, <code>all()</code>, <code>sum()</code>, and <code>mean()</code>. You also learned the powerful <code>if_else()</code> and <code>case_when()</code> functions that allow you to return values depending on the value of a logical vector.</p>
-<p>We’ll see logical vectors again and again in the following chapters. For example in <strong>?@sec-strings</strong> you’ll learn about <code>str_detect(x, pattern)</code> which returns a logical vector that’s <code>TRUE</code> for the elements of <code>x</code> that match the <code>pattern</code>, and in <strong>?@sec-dates-and-times</strong> you’ll create logical vectors from the comparison of dates and times. But for now, we’re going to move onto the next most important type of vector: numeric vectors.</p>
+<p>We’ll see logical vectors again and again in the following chapters. For example in <a href="strings.html" class="quarto-xref"><span>Chapter 15</span></a> you’ll learn about <code>str_detect(x, pattern)</code> which returns a logical vector that’s <code>TRUE</code> for the elements of <code>x</code> that match the <code>pattern</code>, and in <a href="datetimes.html" class="quarto-xref"><span>Chapter 18</span></a> you’ll create logical vectors from the comparison of dates and times. But for now, we’re going to move onto the next most important type of vector: numeric vectors.</p>
 
 
-</section>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
 <li id="fn1"><p>R normally calls print for you (i.e.&nbsp;<code>x</code> is a shortcut for <code>print(x)</code>), but calling it explicitly is useful if you want to provide other arguments.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>That is, <code>xor(x, y)</code> is true if x is true, or y is true, but not both. This is how we usually use “or” In English. “Both” is not usually an acceptable answer to the question “would you like ice cream or cake?”.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>We’ll cover this in <strong>?@sec-joins</strong>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>We’ll cover this in <a href="joins.html" class="quarto-xref"><span>Chapter 20</span></a>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p>dplyr’s <code>if_else()</code> is very similar to base R’s <code>ifelse()</code>. There are two main advantages of <code>if_else()</code>over <code>ifelse()</code>: you can choose what should happen to missing values, and <code>if_else()</code> is much more likely to give you a meaningful error if your variables have incompatible types.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
@@ -818,7 +1173,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/emunkhtsetseg\.github\.io\/r4ds\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1146,7 +1501,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./transform.html" class="pagination-link" aria-label="Transform">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Transform</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./numbers.html" class="pagination-link" aria-label="Numbers">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Numbers</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/emunkhtsetseg/r4ds/edit/main/logicals.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emunkhtsetseg/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
 
 
 

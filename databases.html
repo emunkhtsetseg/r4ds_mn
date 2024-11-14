@@ -8,7 +8,7 @@
 
 <meta name="author" content="Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund">
 
-<title>databases</title>
+<title>22&nbsp; Databases – R for Data Science (2e)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,11 +59,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./arrow.html" rel="next">
+<link href="./spreadsheets.html" rel="prev">
+<link href="./cover.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -72,7 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-07ba0ad10f5680c660e360ac31d2f3b6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a931f05f3074483020850101f44f8acc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4e73071aaf4ad36f30f53cb9d4ee01e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -105,28 +109,374 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="fullcontent">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./import.html">Import</a></li><li class="breadcrumb-item"><a href="./databases.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Databases</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R for Data Science (2e)</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/emunkhtsetseg/r4ds/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">тавтай морил</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./preface-2e.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface to the second edition</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./whole-game.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Whole game</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-visualize.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data visualization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workflow-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Workflow: basics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-transform.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data transformation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workflow-style.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Workflow: code style</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-tidy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data tidying</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workflow-scripts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Workflow: scripts and projects</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-import.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data import</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workflow-help.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Workflow: getting help</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./visualize.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualize</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./layers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Layers</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EDA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Exploratory data analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./communication.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Communication</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./transform.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transform</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./logicals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Logical vectors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./numbers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Numbers</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./strings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Strings</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./regexps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Regular expressions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./factors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Factors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./datetimes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Dates and times</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./missing-values.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Missing values</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./joins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Joins</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./import.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Import</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./spreadsheets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Spreadsheets</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./databases.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Databases</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./arrow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Arrow</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./rectangling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Hierarchical data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./webscraping.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Web scraping</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./program.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Program</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./iteration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Iteration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./base-R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">A field guide to base R</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./communicate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Communicate</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./quarto-formats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Quarto formats</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">22.1</span> Introduction</a>
+  <ul class="collapse">
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites"><span class="header-section-number">22.1.1</span> Prerequisites</a></li>
+  </ul></li>
+  <li><a href="#database-basics" id="toc-database-basics" class="nav-link" data-scroll-target="#database-basics"><span class="header-section-number">22.2</span> Database basics</a></li>
+  <li><a href="#connecting-to-a-database" id="toc-connecting-to-a-database" class="nav-link" data-scroll-target="#connecting-to-a-database"><span class="header-section-number">22.3</span> Connecting to a database</a>
+  <ul class="collapse">
+  <li><a href="#in-this-book" id="toc-in-this-book" class="nav-link" data-scroll-target="#in-this-book"><span class="header-section-number">22.3.1</span> In this book</a></li>
+  <li><a href="#sec-load-data" id="toc-sec-load-data" class="nav-link" data-scroll-target="#sec-load-data"><span class="header-section-number">22.3.2</span> Load some data</a></li>
+  <li><a href="#dbi-basics" id="toc-dbi-basics" class="nav-link" data-scroll-target="#dbi-basics"><span class="header-section-number">22.3.3</span> DBI basics</a></li>
+  </ul></li>
+  <li><a href="#dbplyr-basics" id="toc-dbplyr-basics" class="nav-link" data-scroll-target="#dbplyr-basics"><span class="header-section-number">22.4</span> dbplyr basics</a></li>
+  <li><a href="#sql" id="toc-sql" class="nav-link" data-scroll-target="#sql"><span class="header-section-number">22.5</span> SQL</a>
+  <ul class="collapse">
+  <li><a href="#sql-basics" id="toc-sql-basics" class="nav-link" data-scroll-target="#sql-basics"><span class="header-section-number">22.5.1</span> SQL basics</a></li>
+  <li><a href="#select" id="toc-select" class="nav-link" data-scroll-target="#select"><span class="header-section-number">22.5.2</span> SELECT</a></li>
+  <li><a href="#from" id="toc-from" class="nav-link" data-scroll-target="#from"><span class="header-section-number">22.5.3</span> FROM</a></li>
+  <li><a href="#group-by" id="toc-group-by" class="nav-link" data-scroll-target="#group-by"><span class="header-section-number">22.5.4</span> GROUP BY</a></li>
+  <li><a href="#where" id="toc-where" class="nav-link" data-scroll-target="#where"><span class="header-section-number">22.5.5</span> WHERE</a></li>
+  <li><a href="#order-by" id="toc-order-by" class="nav-link" data-scroll-target="#order-by"><span class="header-section-number">22.5.6</span> ORDER BY</a></li>
+  <li><a href="#subqueries" id="toc-subqueries" class="nav-link" data-scroll-target="#subqueries"><span class="header-section-number">22.5.7</span> Subqueries</a></li>
+  <li><a href="#joins" id="toc-joins" class="nav-link" data-scroll-target="#joins"><span class="header-section-number">22.5.8</span> Joins</a></li>
+  <li><a href="#other-verbs" id="toc-other-verbs" class="nav-link" data-scroll-target="#other-verbs"><span class="header-section-number">22.5.9</span> Other verbs</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">22.5.10</span> Exercises</a></li>
+  </ul></li>
+  <li><a href="#sec-sql-expressions" id="toc-sec-sql-expressions" class="nav-link" data-scroll-target="#sec-sql-expressions"><span class="header-section-number">22.6</span> Function translations</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">22.7</span> Summary</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/emunkhtsetseg/r4ds/edit/main/databases.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emunkhtsetseg/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./import.html">Import</a></li><li class="breadcrumb-item"><a href="./databases.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Databases</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-import-databases" class="quarto-section-identifier"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Databases</span></span></h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="sec-import-databases" class="level1">
-<h1>Databases</h1>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2" data-number="22.1">
+<h2 data-number="22.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">22.1</span> Introduction</h2>
 <p>A huge amount of data lives in databases, so it’s essential that you know how to access it. Sometimes you can ask someone to download a snapshot into a <code>.csv</code> for you, but this gets painful quickly: every time you need to make a change you’ll have to communicate with another human. You want to be able to reach into the database directly to get the data you need, when you need it.</p>
 <p>In this chapter, you’ll first learn the basics of the DBI package: how to use it to connect to a database and then retrieve data with a SQL<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> query. <strong>SQL</strong>, short for <strong>s</strong>tructured <strong>q</strong>uery <strong>l</strong>anguage, is the lingua franca of databases, and is an important language for all data scientists to learn. That said, we’re not going to start with SQL, but instead we’ll teach you dbplyr, which can translate your dplyr code to the SQL. We’ll use that as a way to teach you some of the most important features of SQL. You won’t become a SQL master by the end of the chapter, but you will be able to identify the most important components and understand what they do.</p>
-<section id="prerequisites" class="level3">
-<h3 class="anchored" data-anchor-id="prerequisites">Prerequisites</h3>
+<section id="prerequisites" class="level3" data-number="22.1.1">
+<h3 data-number="22.1.1" class="anchored" data-anchor-id="prerequisites"><span class="header-section-number">22.1.1</span> Prerequisites</h3>
 <p>In this chapter, we’ll introduce DBI and dbplyr. DBI is a low-level interface that connects to databases and executes SQL; dbplyr is a high-level interface that translates your dplyr code to SQL queries then executes them with DBI.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
@@ -135,8 +485,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="database-basics" class="level2">
-<h2 class="anchored" data-anchor-id="database-basics">Database basics</h2>
+<section id="database-basics" class="level2" data-number="22.2">
+<h2 data-number="22.2" class="anchored" data-anchor-id="database-basics"><span class="header-section-number">22.2</span> Database basics</h2>
 <p>At the simplest level, you can think about a database as a collection of data frames, called <strong>tables</strong> in database terminology. Like a data frame, a database table is a collection of named columns, where every value in the column is the same type. There are three high level differences between data frames and database tables:</p>
 <ul>
 <li><p>Database tables are stored on disk and can be arbitrarily large. Data frames are stored in memory, and are fundamentally limited (although that limit is still plenty large for many problems).</p></li>
@@ -150,8 +500,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>In-process</strong> DBMS’s, like SQLite or duckdb, run entirely on your computer. They’re great for working with large datasets where you’re the primary user.</li>
 </ul>
 </section>
-<section id="connecting-to-a-database" class="level2">
-<h2 class="anchored" data-anchor-id="connecting-to-a-database">Connecting to a database</h2>
+<section id="connecting-to-a-database" class="level2" data-number="22.3">
+<h2 data-number="22.3" class="anchored" data-anchor-id="connecting-to-a-database"><span class="header-section-number">22.3</span> Connecting to a database</h2>
 <p>To connect to the database from R, you’ll use a pair of packages:</p>
 <ul>
 <li><p>You’ll always use DBI (<strong>d</strong>ata<strong>b</strong>ase <strong>i</strong>nterface) because it provides a set of generic functions that connect to the database, upload data, run SQL queries, etc.</p></li>
@@ -171,29 +521,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The precise details of the connection vary a lot from DBMS to DBMS so unfortunately we can’t cover all the details here. This means you’ll need to do a little research on your own. Typically you can ask the other data scientists in your team or talk to your DBA (<strong>d</strong>ata<strong>b</strong>ase <strong>a</strong>dministrator). The initial setup will often take a little fiddling (and maybe some googling) to get it right, but you’ll generally only need to do it once.</p>
-<section id="in-this-book" class="level3">
-<h3 class="anchored" data-anchor-id="in-this-book">In this book</h3>
+<section id="in-this-book" class="level3" data-number="22.3.1">
+<h3 data-number="22.3.1" class="anchored" data-anchor-id="in-this-book"><span class="header-section-number">22.3.1</span> In this book</h3>
 <p>Setting up a client-server or cloud DBMS would be a pain for this book, so we’ll instead use an in-process DBMS that lives entirely in an R package: duckdb. Thanks to the magic of DBI, the only difference between using duckdb and any other DBMS is how you’ll connect to the database. This makes it great to teach with because you can easily run this code as well as easily take what you learn and apply it elsewhere.</p>
 <p>Connecting to duckdb is particularly simple because the defaults create a temporary database that is deleted when you quit R. That’s great for learning because it guarantees that you’ll start from a clean slate every time you restart R:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbConnect</span>(duckdb<span class="sc">::</span><span class="fu">duckdb</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>duckdb is a high-performance database that’s designed very much for the needs of a data scientist. We use it here because it’s very easy to get started with, but it’s also capable of handling gigabytes of data with great speed. If you want to use duckdb for a real data analysis project, you’ll also need to supply the <code>dbdir</code> argument to make a persistent database and tell duckdb where to save it. Assuming you’re using a project (<strong>?@sec-workflow-scripts-projects</strong>), it’s reasonable to store it in the <code>duckdb</code> directory of the current project:</p>
+<p>duckdb is a high-performance database that’s designed very much for the needs of a data scientist. We use it here because it’s very easy to get started with, but it’s also capable of handling gigabytes of data with great speed. If you want to use duckdb for a real data analysis project, you’ll also need to supply the <code>dbdir</code> argument to make a persistent database and tell duckdb where to save it. Assuming you’re using a project (<a href="workflow-scripts.html" class="quarto-xref"><span>Chapter 7</span></a>), it’s reasonable to store it in the <code>duckdb</code> directory of the current project:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbConnect</span>(duckdb<span class="sc">::</span><span class="fu">duckdb</span>(), <span class="at">dbdir =</span> <span class="st">"duckdb"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="sec-load-data" class="level3">
-<h3 class="anchored" data-anchor-id="sec-load-data">Load some data</h3>
+<section id="sec-load-data" class="level3" data-number="22.3.2">
+<h3 data-number="22.3.2" class="anchored" data-anchor-id="sec-load-data"><span class="header-section-number">22.3.2</span> Load some data</h3>
 <p>Since this is a new database, we need to start by adding some data. Here we’ll add <code>mpg</code> and <code>diamonds</code> datasets from ggplot2 using <code>DBI::dbWriteTable()</code>. The simplest usage of <code>dbWriteTable()</code> needs three arguments: a database connection, the name of the table to create in the database, and a data frame of data.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">"mpg"</span>, ggplot2<span class="sc">::</span>mpg)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">"diamonds"</span>, ggplot2<span class="sc">::</span>diamonds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>If you’re using duckdb in a real project, we highly recommend learning about <code>duckdb_read_csv()</code> and <code>duckdb_register_arrow()</code>. These give you powerful and performant ways to quickly load data directly into duckdb, without having to first load it into R. We’ll also show off a useful technique for loading multiple files into a database in <strong>?@sec-save-database</strong>.</p>
+<p>If you’re using duckdb in a real project, we highly recommend learning about <code>duckdb_read_csv()</code> and <code>duckdb_register_arrow()</code>. These give you powerful and performant ways to quickly load data directly into duckdb, without having to first load it into R. We’ll also show off a useful technique for loading multiple files into a database in <a href="iteration.html#sec-save-database" class="quarto-xref"><span>Section 27.4.1</span></a>.</p>
 </section>
-<section id="dbi-basics" class="level3">
-<h3 class="anchored" data-anchor-id="dbi-basics">DBI basics</h3>
+<section id="dbi-basics" class="level3" data-number="22.3.3">
+<h3 data-number="22.3.3" class="anchored" data-anchor-id="dbi-basics"><span class="header-section-number">22.3.3</span> DBI basics</h3>
 <p>You can check that the data is loaded correctly by using a couple of other DBI functions: <code>dbListTables()</code> lists all tables in the database<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> and <code>dbReadTable()</code> retrieves the contents of a table.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbListTables</span>(con)</span>
@@ -236,8 +586,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>If you’ve never seen SQL before, don’t worry! You’ll learn more about it shortly. But if you read it carefully, you might guess that it selects five columns of the diamonds dataset and all the rows where <code>price</code> is greater than 15,000.</p>
 </section>
 </section>
-<section id="dbplyr-basics" class="level2">
-<h2 class="anchored" data-anchor-id="dbplyr-basics">dbplyr basics</h2>
+<section id="dbplyr-basics" class="level2" data-number="22.4">
+<h2 data-number="22.4" class="anchored" data-anchor-id="dbplyr-basics"><span class="header-section-number">22.4</span> dbplyr basics</h2>
 <p>Now that we’ve connected to a database and loaded up some data, we can start to learn about dbplyr. dbplyr is a dplyr <strong>backend</strong>, which means that you keep writing dplyr code but the backend executes it differently. In this, dbplyr translates to SQL; other backends include <a href="https://dtplyr.tidyverse.org">dtplyr</a> which translates to <a href="https://r-datatable.com">data.table</a>, and <a href="https://multidplyr.tidyverse.org">multidplyr</a> which executes your code on multiple cores.</p>
 <p>To use dbplyr, you must first use <code>tbl()</code> to create an object that represents a database table:</p>
 <div class="cell">
@@ -320,8 +670,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Typically, you’ll use dbplyr to select the data you want from the database, performing basic filtering and aggregation using the translations described below. Then, once you’re ready to analyse the data with functions that are unique to R, you’ll <code>collect()</code> the data to get an in-memory tibble, and continue your work with pure R code.</p>
 </section>
-<section id="sql" class="level2">
-<h2 class="anchored" data-anchor-id="sql">SQL</h2>
+<section id="sql" class="level2" data-number="22.5">
+<h2 data-number="22.5" class="anchored" data-anchor-id="sql"><span class="header-section-number">22.5</span> SQL</h2>
 <p>The rest of the chapter will teach you a little SQL through the lens of dbplyr. It’s a rather non-traditional introduction to SQL but we hope it will get you quickly up to speed with the basics. Luckily, if you understand dplyr you’re in a great place to quickly pick up SQL because so many of the concepts are the same.</p>
 <p>We’ll explore the relationship between dplyr and SQL using a couple of old friends from the nycflights13 package: <code>flights</code> and <code>planes</code>. These datasets are easy to get into our learning database because dbplyr comes with a function that copies the tables from nycflights13 to our database:</p>
 <div class="cell">
@@ -334,8 +684,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>flights <span class="ot">&lt;-</span> <span class="fu">tbl</span>(con, <span class="st">"flights"</span>)</span>
 <span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>planes <span class="ot">&lt;-</span> <span class="fu">tbl</span>(con, <span class="st">"planes"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="sql-basics" class="level3">
-<h3 class="anchored" data-anchor-id="sql-basics">SQL basics</h3>
+<section id="sql-basics" class="level3" data-number="22.5.1">
+<h3 data-number="22.5.1" class="anchored" data-anchor-id="sql-basics"><span class="header-section-number">22.5.1</span> SQL basics</h3>
 <p>The top-level components of SQL are called <strong>statements</strong>. Common statements include <code>CREATE</code> for defining new tables, <code>INSERT</code> for adding data, and <code>SELECT</code> for retrieving data. We will focus on <code>SELECT</code> statements, also called <strong>queries</strong>, because they are almost exclusively what you’ll use as a data scientist.</p>
 <p>A query is made up of <strong>clauses</strong>. There are five important clauses: <code>SELECT</code>, <code>FROM</code>, <code>WHERE</code>, <code>ORDER BY</code>, and <code>GROUP BY</code>. Every query must have the <code>SELECT</code><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> and <code>FROM</code><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> clauses and the simplest query is <code>SELECT * FROM table</code>, which selects all columns from the specified table . This is what dbplyr generates for an unadulterated table :</p>
 <div class="cell">
@@ -388,8 +738,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="select" class="level3">
-<h3 class="anchored" data-anchor-id="select">SELECT</h3>
+<section id="select" class="level3" data-number="22.5.2">
+<h3 data-number="22.5.2" class="anchored" data-anchor-id="select"><span class="header-section-number">22.5.2</span> SELECT</h3>
 <p>The <code>SELECT</code> clause is the workhorse of queries and performs the same job as <code>select()</code>, <code>mutate()</code>, <code>rename()</code>, <code>relocate()</code>, and, as you’ll learn in the next section, <code>summarize()</code>.</p>
 <p><code>select()</code>, <code>rename()</code>, and <code>relocate()</code> have very direct translations to <code>SELECT</code> as they just affect where a column appears (if at all) along with its name:</p>
 <div class="cell">
@@ -444,14 +794,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; SELECT flights.*, distance / (air_time / 60.0) AS speed</span></span>
 <span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; FROM flights</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We’ll come back to the translation of individual components (like <code>/</code>) in <a href="#sec-sql-expressions" class="quarto-xref">Section&nbsp;1.6</a>.</p>
+<p>We’ll come back to the translation of individual components (like <code>/</code>) in <a href="#sec-sql-expressions" class="quarto-xref"><span>Section 22.6</span></a>.</p>
 </section>
-<section id="from" class="level3">
-<h3 class="anchored" data-anchor-id="from">FROM</h3>
+<section id="from" class="level3" data-number="22.5.3">
+<h3 data-number="22.5.3" class="anchored" data-anchor-id="from"><span class="header-section-number">22.5.3</span> FROM</h3>
 <p>The <code>FROM</code> clause defines the data source. It’s going to be rather uninteresting for a little while, because we’re just using single tables. You’ll see more complex examples once we hit the join functions.</p>
 </section>
-<section id="group-by" class="level3">
-<h3 class="anchored" data-anchor-id="group-by">GROUP BY</h3>
+<section id="group-by" class="level3" data-number="22.5.4">
+<h3 data-number="22.5.4" class="anchored" data-anchor-id="group-by"><span class="header-section-number">22.5.4</span> GROUP BY</h3>
 <p><code>group_by()</code> is translated to the <code>GROUP BY</code><a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> clause and <code>summarize()</code> is translated to the <code>SELECT</code> clause:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>diamonds_db <span class="sc">|&gt;</span> </span>
@@ -466,10 +816,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; FROM diamonds</span></span>
 <span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; GROUP BY cut</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We’ll come back to what’s happening with translation <code>n()</code> and <code>mean()</code> in <a href="#sec-sql-expressions" class="quarto-xref">Section&nbsp;1.6</a>.</p>
+<p>We’ll come back to what’s happening with translation <code>n()</code> and <code>mean()</code> in <a href="#sec-sql-expressions" class="quarto-xref"><span>Section 22.6</span></a>.</p>
 </section>
-<section id="where" class="level3">
-<h3 class="anchored" data-anchor-id="where">WHERE</h3>
+<section id="where" class="level3" data-number="22.5.5">
+<h3 data-number="22.5.5" class="anchored" data-anchor-id="where"><span class="header-section-number">22.5.5</span> WHERE</h3>
 <p><code>filter()</code> is translated to the <code>WHERE</code> clause:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> </span>
@@ -516,12 +866,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # Database: DuckDB v1.1.2 [root@Darwin 23.4.0:R 4.4.1/:memory:]</span></span>
 <span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   dest  delay</span></span>
 <span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt; &lt;dbl&gt;</span></span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 SFO    2.67</span></span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 GSP   15.9 </span></span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 SJU    2.52</span></span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 GSO   14.1 </span></span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 STT   -3.84</span></span>
-<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 SAN    3.14</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 ATL   11.3 </span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 MCO    5.45</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 MSY    6.49</span></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 XNA    7.47</span></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 BNA   11.8 </span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 ALB   14.4 </span></span>
 <span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ more rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If you want to learn more about how <code>NULL</code>s work, you might enjoy “<a href="https://modern-sql.com/concept/three-valued-logic">The Three-Valued Logic of SQL</a>” by Markus Winand.</p>
@@ -551,8 +901,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; HAVING (COUNT(*) &gt; 100.0)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="order-by" class="level3">
-<h3 class="anchored" data-anchor-id="order-by">ORDER BY</h3>
+<section id="order-by" class="level3" data-number="22.5.6">
+<h3 data-number="22.5.6" class="anchored" data-anchor-id="order-by"><span class="header-section-number">22.5.6</span> ORDER BY</h3>
 <p>Ordering rows involves a straightforward translation from <code>arrange()</code> to the <code>ORDER BY</code> clause:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> </span>
@@ -565,8 +915,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Notice how <code>desc()</code> is translated to <code>DESC</code>: this is one of the many dplyr functions whose name was directly inspired by SQL.</p>
 </section>
-<section id="subqueries" class="level3">
-<h3 class="anchored" data-anchor-id="subqueries">Subqueries</h3>
+<section id="subqueries" class="level3" data-number="22.5.7">
+<h3 data-number="22.5.7" class="anchored" data-anchor-id="subqueries"><span class="header-section-number">22.5.7</span> Subqueries</h3>
 <p>Sometimes it’s not possible to translate a dplyr pipeline into a single <code>SELECT</code> statement and you need to use a subquery. A <strong>subquery</strong> is just a query used as a data source in the <code>FROM</code> clause, instead of the usual table.</p>
 <p>dbplyr typically uses subqueries to work around limitations of SQL. For example, expressions in the <code>SELECT</code> clause can’t refer to columns that were just created. That means that the following (silly) dplyr pipeline needs to happen in two steps: the first (inner) query computes <code>year1</code> and then the second (outer) query can compute <code>year2</code>.</p>
 <div class="cell">
@@ -599,8 +949,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Sometimes dbplyr will create a subquery where it’s not needed because it doesn’t yet know how to optimize that translation. As dbplyr improves over time, these cases will get rarer but will probably never go away.</p>
 </section>
-<section id="joins" class="level3">
-<h3 class="anchored" data-anchor-id="joins">Joins</h3>
+<section id="joins" class="level3" data-number="22.5.8">
+<h3 data-number="22.5.8" class="anchored" data-anchor-id="joins"><span class="header-section-number">22.5.8</span> Joins</h3>
 <p>If you’re familiar with dplyr’s joins, SQL joins are very similar. Here’s a simple example:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span> </span>
@@ -636,12 +986,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="kw">FULL</span> <span class="kw">JOIN</span> planes <span class="kw">ON</span> (flights.tailnum <span class="op">=</span> planes.tailnum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You’re likely to need many joins when working with data from a database. That’s because database tables are often stored in a highly normalized form, where each “fact” is stored in a single place and to keep a complete dataset for analysis you need to navigate a complex network of tables connected by primary and foreign keys. If you hit this scenario, the <a href="https://cynkra.github.io/dm/">dm package</a>, by Tobias Schieferdecker, Kirill Müller, and Darko Bergant, is a life saver. It can automatically determine the connections between tables using the constraints that DBAs often supply, visualize the connections so you can see what’s going on, and generate the joins you need to connect one table to another.</p>
 </section>
-<section id="other-verbs" class="level3">
-<h3 class="anchored" data-anchor-id="other-verbs">Other verbs</h3>
+<section id="other-verbs" class="level3" data-number="22.5.9">
+<h3 data-number="22.5.9" class="anchored" data-anchor-id="other-verbs"><span class="header-section-number">22.5.9</span> Other verbs</h3>
 <p>dbplyr also translates other verbs like <code>distinct()</code>, <code>slice_*()</code>, and <code>intersect()</code>, and a growing selection of tidyr functions like <code>pivot_longer()</code> and <code>pivot_wider()</code>. The easiest way to see the full set of what’s currently available is to visit the dbplyr website: <a href="https://dbplyr.tidyverse.org/reference/" class="uri">https://dbplyr.tidyverse.org/reference/</a>.</p>
 </section>
-<section id="exercises" class="level3">
-<h3 class="anchored" data-anchor-id="exercises">Exercises</h3>
+<section id="exercises" class="level3" data-number="22.5.10">
+<h3 data-number="22.5.10" class="anchored" data-anchor-id="exercises"><span class="header-section-number">22.5.10</span> Exercises</h3>
 <ol type="1">
 <li><p>What is <code>distinct()</code> translated to? How about <code>head()</code>?</p></li>
 <li><p>Explain what each of the following SQL queries do and try recreate them using dbplyr.</p>
@@ -654,8 +1004,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 </section>
 </section>
-<section id="sec-sql-expressions" class="level2">
-<h2 class="anchored" data-anchor-id="sec-sql-expressions">Function translations</h2>
+<section id="sec-sql-expressions" class="level2" data-number="22.6">
+<h2 data-number="22.6" class="anchored" data-anchor-id="sec-sql-expressions"><span class="header-section-number">22.6</span> Function translations</h2>
 <p>So far we’ve focused on the big picture of how dplyr verbs are translated to the clauses of a query. Now we’re going to zoom in a little and talk about the translation of the R functions that work with individual columns, e.g., what happens when you use <code>mean(x)</code> in a <code>summarize()</code>?</p>
 <p>To help see what’s going on, we’ll use a couple of little helper functions that run a <code>summarize()</code> or <code>mutate()</code> and show the generated SQL. That will make it a little easier to explore a few variations and see how summaries and transformations can differ.</p>
 <div class="cell">
@@ -770,8 +1120,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>dbplyr also translates common string and date-time manipulation functions, which you can learn about in <code>vignette("translation-function", package = "dbplyr")</code>. dbplyr’s translations are certainly not perfect, and there are many R functions that aren’t translated yet, but dbplyr does a surprisingly good job covering the functions that you’ll use most of the time.</p>
 </section>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<section id="summary" class="level2" data-number="22.7">
+<h2 data-number="22.7" class="anchored" data-anchor-id="summary"><span class="header-section-number">22.7</span> Summary</h2>
 <p>In this chapter you learned how to access data from databases. We focused on dbplyr, a dplyr “backend” that allows you to write the dplyr code you’re familiar with, and have it be automatically translated to SQL. We used that translation to teach you a little SQL; it’s important to learn some SQL because it’s <em>the</em> most commonly used language for working with data and knowing some will make it easier for you to communicate with other data folks who don’t use R. If you’ve finished this chapter and would like to learn more about SQL. We have two recommendations:</p>
 <ul>
 <li><a href="https://sqlfordatascientists.com"><em>SQL for Data Scientists</em></a> by Renée M. P. Teate is an introduction to SQL designed specifically for the needs of data scientists, and includes examples of the sort of highly interconnected data you’re likely to encounter in real organizations.</li>
@@ -780,7 +1130,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In the next chapter, we’ll learn about another dplyr backend for working with large data: arrow. Arrow is designed for working with large files on disk, and is a natural complement to databases.</p>
 
 
-</section>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
@@ -887,7 +1236,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/emunkhtsetseg\.github\.io\/r4ds\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1215,7 +1564,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./spreadsheets.html" class="pagination-link" aria-label="Spreadsheets">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Spreadsheets</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./arrow.html" class="pagination-link" aria-label="Arrow">
+        <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Arrow</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/emunkhtsetseg/r4ds/edit/main/databases.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/emunkhtsetseg/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
 
 
 
